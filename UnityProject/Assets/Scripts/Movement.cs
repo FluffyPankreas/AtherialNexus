@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector2 _horizontalInput;
+    public void ReceiveInput(Vector2 horizontalInput)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _horizontalInput = horizontalInput;
     }
 }
