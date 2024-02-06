@@ -29,6 +29,7 @@ public class InputController : MonoBehaviour
 
     public void OnDisable()
     {
+        _playerControls.Disable();
         _playerControls.Default.HorizontalMovement.performed -= ReadHorizontalInput;
     }
 
