@@ -4,10 +4,22 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField,Tooltip("The movement speed of the player in m/s")] private float moveSpeed = 11f;
-    private CharacterController _characterController;
+    [SerializeField,Tooltip("The movement speed of the player in m/s")] 
+    private float moveSpeed = 11f;
+
+    [SerializeField, Tooltip("The height in meters that the character can jump to.")]
+    private float jumpHeight = 5f;
     
-    private Vector2 _horizontalInput;
+    [SerializeField,Tooltip("The gravity acting on the character controller.")] 
+    private float gravity = -30f;
+
+    [SerializeField, Tooltip("The layer mask for when the character is grounded.")]
+    private LayerMask groundMask;
+
+    private CharacterController _characterController;
+    private Vector3 _horizontalDirection = Vector3.zero;
+    private bool _isGrounded = true;
+    private bool _jump = false;
 
     public void Awake()
     {
@@ -19,15 +31,32 @@ public class Movement : MonoBehaviour
 
     public void Update()
     {
-        var direction = new Vector3(_horizontalInput.x, 0, _horizontalInput.y).normalized;
-        var horizontalVelocity = Time.deltaTime * moveSpeed * direction;
+        _isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
+        
+        var horizontalVelocity = Time.deltaTime * moveSpeed * _horizontalDirection;
         _characterController.Move(horizontalVelocity);
+
+        if (!_isGrounded)
+        {
+            _characterController.Move(Time.deltaTime * gravity * Vector3.up);
+        }
+
+        if (_jump && _isGrounded)
+        {
+            
+            _jump = false;
+        }
     }
     
     
     public void ReceiveInput(Vector2 horizontalInput)
     {
-        _horizontalInput = horizontalInput;
+        _horizontalDirection = new Vector3(horizontalInput.x, 0, horizontalInput.y).normalized;
+    }
+
+    public void OnJumpPressed()
+    {
+        _jump = true;
     }
     
     
