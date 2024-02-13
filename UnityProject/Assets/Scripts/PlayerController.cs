@@ -1,3 +1,5 @@
+using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,12 +27,22 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new PlayerControls();
+
+        Cursor.visible = false;
+    }
+
+    public void Update()
+    {
+        if (Keyboard.current.escapeKey.isPressed)
+        {
+            Application.Quit();
+        }
     }
 
     public void FixedUpdate()
     {
-        HandleMovement();
         HandleMouseLook();
+        HandleMovement();
     }
 
     public void OnEnable()
@@ -54,7 +66,20 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         var readInput = _playerControls.Default.Movement.ReadValue<Vector2>();
-        var direction = new Vector3(readInput.x, 0, readInput.y).normalized;
+        
+        var direction = Vector3.zero;
+        if (readInput.y > 0)
+            direction += transform.forward;
+        if (readInput.y < 0)
+            direction -= transform.forward;
+
+        if (readInput.x > 0)
+            direction += transform.right;
+        if (readInput.x < 0)
+            direction -= transform.right;
+        
+            
+        direction = direction.normalized;
 
         _rigidbody.velocity = new Vector3(direction.x * moveSpeed, _rigidbody.velocity.y, direction.z * moveSpeed);
     }
