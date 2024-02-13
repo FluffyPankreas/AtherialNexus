@@ -4,14 +4,22 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField, Tooltip("The camera that the player will be using.")]
+    private Camera fpsCamera;
+    
     [SerializeField, Tooltip("The force of the jump action.")]
     private float jumpForce = 5f;
 
     [SerializeField, Tooltip("The movement speed of the player.")]
     private float moveSpeed = 5f;
 
+    [SerializeField, Tooltip("The mouse sensitivity.")]
+    private float mouseSensitivity = 10f;
+
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
+
+    private float xRotation = 0f;
     
     public void Awake()
     {
@@ -21,8 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        var readInput = _playerControls.Default.Movement.ReadValue<Vector2>();
-        _rigidbody.AddForce(new Vector3(readInput.x, 0, readInput.y) * moveSpeed, ForceMode.Impulse);
+        HandleMovement();
+        HandleMouseLook();
     }
 
     public void OnEnable()
@@ -38,19 +46,31 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void Jump(InputAction.CallbackContext context)
+    private void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log("Jump." + context.phase);
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    public void MovePlayer(InputAction.CallbackContext context)
+    private void HandleMovement()
     {
-        var readInput = context.ReadValue<Vector2>();
+        var readInput = _playerControls.Default.Movement.ReadValue<Vector2>();
         var direction = new Vector3(readInput.x, 0, readInput.y).normalized;
-        _rigidbody.AddForce(direction * moveSpeed,ForceMode.Impulse);
-        
-        
-        Debug.Log(context);
+
+        _rigidbody.velocity = new Vector3(direction.x * moveSpeed, _rigidbody.velocity.y, direction.z * moveSpeed);
+    }
+
+    private void HandleMouseLook()
+    {
+        var readMouseDelta = _playerControls.Default.MouseLook.ReadValue<Vector2>();
+
+        var mouseX = readMouseDelta.x * mouseSensitivity * Time.fixedDeltaTime;
+        var mouseY = readMouseDelta.y * mouseSensitivity * Time.fixedDeltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90, 90);
+
+        fpsCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+
+        transform.Rotate(Vector3.up * mouseX);
     }
 }
