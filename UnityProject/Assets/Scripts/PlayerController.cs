@@ -1,5 +1,4 @@
-using System;
-using UnityEditor;
+using DarkMushroomGames;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,12 +16,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Tooltip("The mouse sensitivity.")]
     private float mouseSensitivity = 10f;
+    
 
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
 
     private float _xRotation = 0f;
     private bool _isJumping;
+
+    private Weapon _equippedWeapon;
     
     public void Awake()
     {
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        _equippedWeapon = GetComponentInChildren<Weapon>(true);
     }
 
     public void Update()
@@ -114,7 +118,6 @@ public class PlayerController : MonoBehaviour
 
     private void PrimaryFire(InputAction.CallbackContext context)
     {
-        Debug.Log("Primary Fire.");
-        
+        _equippedWeapon.PrimaryFire();
     }
 }

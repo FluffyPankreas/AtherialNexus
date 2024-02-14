@@ -585,7 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075022893}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,8 +1131,9 @@ GameObject:
   - component: {fileID: 1619982624}
   - component: {fileID: 1619982626}
   - component: {fileID: 1619982625}
+  - component: {fileID: 1619982627}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Musket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1204,6 +1205,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619982623}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1619982627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619982623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6835a117fe4af8e4caa067c78aa53f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponMuzzle: {fileID: 1075022893}
 --- !u!1 &2129943484
 GameObject:
   m_ObjectHideFlags: 0
