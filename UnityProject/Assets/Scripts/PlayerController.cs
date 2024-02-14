@@ -56,12 +56,14 @@ public class PlayerController : MonoBehaviour
     {
         _playerControls.Default.Enable();
         _playerControls.Default.Jump.started += Jump;
+        _playerControls.Default.PrimaryFire.performed += PrimaryFire;
     }
 
     public void OnDisable()
     {
         _playerControls.Default.Jump.started -= Jump;
         _playerControls.Default.Disable();
+        _playerControls.Default.PrimaryFire.performed -= PrimaryFire;
     }
 
 
@@ -108,5 +110,11 @@ public class PlayerController : MonoBehaviour
         fpsCamera.transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
 
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    private void PrimaryFire(InputAction.CallbackContext context)
+    {
+        Debug.Log("Primary Fire.");
+        
     }
 }
