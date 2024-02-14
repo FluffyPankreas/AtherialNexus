@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
 
-    private float xRotation = 0f;
+    private float _xRotation = 0f;
+    private bool _isJumping;
     
     public void Awake()
     {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         _playerControls = new PlayerControls();
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Update()
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.escapeKey.isPressed)
         {
             Application.Quit();
+        }
+
+        if (_isJumping && _rigidbody.velocity.y == 0)
+        {
+             _isJumping = false;
         }
     }
 
@@ -60,7 +67,11 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        if (!_isJumping)
+        {
+            _isJumping = true;
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
     private void HandleMovement()
@@ -91,10 +102,10 @@ public class PlayerController : MonoBehaviour
         var mouseX = readMouseDelta.x * mouseSensitivity * Time.fixedDeltaTime;
         var mouseY = readMouseDelta.y * mouseSensitivity * Time.fixedDeltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+        _xRotation -= mouseY;
+        _xRotation = Mathf.Clamp(_xRotation, -90, 90);
 
-        fpsCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        fpsCamera.transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
 
         transform.Rotate(Vector3.up * mouseX);
     }
