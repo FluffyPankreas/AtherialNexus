@@ -26,11 +26,14 @@ namespace DarkMushroomGames
         /// </summary>
         public void PrimaryFire()
         {
-            Debug.Log("==== Primary Fire. ====");
             var bullet = Instantiate(loadedAmmo, weaponMuzzle.position, Quaternion.identity);
             bullet.transform.forward = weaponMuzzle.forward;
         }
-        
+
+        public void SecondaryFire()
+        {
+            Debug.Log("Secondary Fire.");
+        }
     }
 }
 

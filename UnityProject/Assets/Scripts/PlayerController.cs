@@ -61,13 +61,15 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.Enable();
         _playerControls.Default.Jump.started += Jump;
         _playerControls.Default.PrimaryFire.performed += PrimaryFire;
+        _playerControls.Default.SecondaryFire.performed += SecondaryFire;
     }
 
     public void OnDisable()
     {
         _playerControls.Default.Jump.started -= Jump;
-        _playerControls.Default.Disable();
         _playerControls.Default.PrimaryFire.performed -= PrimaryFire;
+        _playerControls.Default.SecondaryFire.performed -= SecondaryFire;
+        _playerControls.Default.Disable();
     }
 
 
@@ -94,7 +96,6 @@ public class PlayerController : MonoBehaviour
             direction += transform.right;
         if (readInput.x < 0)
             direction -= transform.right;
-        
             
         direction = direction.normalized;
 
@@ -119,5 +120,10 @@ public class PlayerController : MonoBehaviour
     private void PrimaryFire(InputAction.CallbackContext context)
     {
         _equippedWeapon.PrimaryFire();
+    }
+
+    private void SecondaryFire(InputAction.CallbackContext context)
+    {
+        _equippedWeapon.SecondaryFire();
     }
 }
