@@ -18,6 +18,6 @@ public class DesignIdeas
      * 13) Laser style gun with overheating mechanics.
      * 14) Powerful six shooter.
      * 15) Ammo management? 
-     *
+     * 16) Going with the Limbo idea, the player needs to be able to prep for the next round, so while the exact level won't be known we should show the next "reality" or something that they'll enter.
      */
 }
