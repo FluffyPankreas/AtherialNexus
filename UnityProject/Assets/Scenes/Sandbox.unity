@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35201086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,6 +348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e556445d7215c2e4d96f6d8023d14664, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -442,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293043184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +634,7 @@ GameObject:
   - component: {fileID: 540989183}
   - component: {fileID: 540989186}
   - component: {fileID: 540989185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +717,7 @@ GameObject:
   - component: {fileID: 562553623}
   - component: {fileID: 562553622}
   - component: {fileID: 562553621}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FPSCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1009,7 +1013,7 @@ GameObject:
   - component: {fileID: 637952664}
   - component: {fileID: 637952663}
   - component: {fileID: 637952662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1118,7 @@ GameObject:
   - component: {fileID: 685420529}
   - component: {fileID: 685420528}
   - component: {fileID: 685420530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075022893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1718,7 +1722,7 @@ GameObject:
   - component: {fileID: 1141846030}
   - component: {fileID: 1141846029}
   - component: {fileID: 1141846028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1931,7 @@ GameObject:
   - component: {fileID: 1401600689}
   - component: {fileID: 1401600688}
   - component: {fileID: 1401600687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2170,7 +2174,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -2216,7 +2220,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -2241,7 +2245,7 @@ GameObject:
   - component: {fileID: 1609133896}
   - component: {fileID: 1609133895}
   - component: {fileID: 1609133894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2346,7 +2350,7 @@ GameObject:
   - component: {fileID: 1616594706}
   - component: {fileID: 1616594705}
   - component: {fileID: 1616594704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2451,7 +2455,7 @@ GameObject:
   - component: {fileID: 1619982626}
   - component: {fileID: 1619982625}
   - component: {fileID: 1619982627}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Musket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
