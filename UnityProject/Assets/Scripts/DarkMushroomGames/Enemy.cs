@@ -1,4 +1,3 @@
-using DarkMushroomGames;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,11 +12,14 @@ namespace DarkMushroomGames
     {
         [SerializeField, Tooltip("The target the agent will track.")]
         private Transform target;
+        
+        private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
 
         
         public void Awake()
         {
+            _hitPoints = GetComponent<HitPoints>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
@@ -26,6 +28,11 @@ namespace DarkMushroomGames
             if (target != null)
             {
                 _navMeshAgent.destination = target.position;
+            }
+
+            if (_hitPoints.HitPointsLeft <= 0)
+            {
+                Destroy(gameObject);
             }
         }
     }
