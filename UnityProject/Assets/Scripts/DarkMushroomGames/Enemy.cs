@@ -1,14 +1,14 @@
-using System;
+using DarkMushroomGames;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
+
 
 namespace DarkMushroomGames
 {
     /// <summary>
     /// Base enemy class. Handles references and things to make sure it works with navmesh.
     /// </summary>
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent)),RequireComponent(typeof(HitPoints))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField, Tooltip("The target the agent will track.")]

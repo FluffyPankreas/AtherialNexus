@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 528076095}
   - component: {fileID: 528076099}
   - component: {fileID: 528076100}
+  - component: {fileID: 528076101}
   m_Layer: 7
   m_Name: Enemy2
   m_TagString: Untagged
@@ -623,6 +624,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
+--- !u!114 &528076101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528076094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c749cbf7d2b5c4d82c26dab9dd6282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 15
 --- !u!1 &540989182
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +885,7 @@ GameObject:
   - component: {fileID: 620292613}
   - component: {fileID: 620292617}
   - component: {fileID: 620292618}
+  - component: {fileID: 620292619}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: Untagged
@@ -1001,6 +1016,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
+--- !u!114 &620292619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620292612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c749cbf7d2b5c4d82c26dab9dd6282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 3
 --- !u!1 &637952660
 GameObject:
   m_ObjectHideFlags: 0
