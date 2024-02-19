@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 528076095}
   - component: {fileID: 528076099}
   - component: {fileID: 528076100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90615753ea8eca84db3d3fc2de2115b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1607229652}
+  target: {fileID: 685420524}
 --- !u!1 &540989182
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 620292613}
   - component: {fileID: 620292617}
   - component: {fileID: 620292618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
