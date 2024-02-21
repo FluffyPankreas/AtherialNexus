@@ -1,3 +1,4 @@
+using System;
 using DarkMushroomGames;
 using TMPro;
 using UnityEngine;
@@ -49,11 +50,6 @@ public class PlayerController : MonoBehaviour
             Application.Quit();
         }
 
-        if (_isJumping && _rigidbody.velocity.y == 0)
-        {
-             _isJumping = false;
-        }
-
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
     }
 
@@ -61,6 +57,14 @@ public class PlayerController : MonoBehaviour
     {
         HandleMouseLook();
         HandleMovement();
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (_isJumping && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            _isJumping = false;
+        }
     }
 
     public void OnEnable()
