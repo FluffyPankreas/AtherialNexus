@@ -814,15 +814,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
-  attackDistance: 3
-  attackDamage: 0
-  attackLocation: {fileID: 0}
-  attacksHitLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackRadius: 0
-  telegraphingTime: 1
-  attackTime: 0.2
 --- !u!114 &528076101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,15 +1237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
-  attackDistance: 2
-  attackDamage: 2
-  attackLocation: {fileID: 1895685579}
-  attacksHitLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  attackRadius: 2
-  telegraphingTime: 1
-  attackTime: 0.2
 --- !u!114 &620292619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,7 +1510,6 @@ MonoBehaviour:
   jumpForce: 5
   moveSpeed: 5
   mouseSensitivity: 10
-  hitPointsLabel: {fileID: 1937718782}
 --- !u!54 &685420529
 Rigidbody:
   m_ObjectHideFlags: 0
