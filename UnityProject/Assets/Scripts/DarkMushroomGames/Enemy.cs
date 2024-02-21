@@ -17,8 +17,13 @@ namespace DarkMushroomGames
         [SerializeField,Tooltip("The attack distance of the agent.")]
         private float attackDistance;
 
+        [SerializeField, Tooltip("Damage done with attacks.")]
+        private int attackDamage;
+        
         [SerializeField, Tooltip("The location the attack happens.")]
         private Transform attackLocation;
+
+        
 
         [SerializeField] private LayerMask attacksHitLayer;
         [SerializeField] private float attackRadius;
@@ -74,13 +79,13 @@ namespace DarkMushroomGames
 
             
             var hits = Physics.OverlapSphereNonAlloc(attackLocation.position, attackRadius, _results, attacksHitLayer);
-            Debug.Log("Hits: " + hits.ToString());
-             for (int i = 0; i < hits; i++)
-             {
-                 Debug.Log(_results[i].gameObject.name);
-             }
-            
-            
+            for (int i = 0; i < hits; i++)
+            {
+                var hp = _results[i].GetComponent<HitPoints>();
+                hp.SubtractHitPoints(attackDamage);
+            }
+
+
             Invoke(nameof(ActivateAgent), attackTime);
         }
 

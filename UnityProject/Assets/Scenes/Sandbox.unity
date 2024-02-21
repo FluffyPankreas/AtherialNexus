@@ -681,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
   attackDistance: 3
+  attackDamage: 0
   attackLocation: {fileID: 0}
   attacksHitLayer:
     serializedVersion: 2
@@ -1112,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 685420524}
   attackDistance: 2
+  attackDamage: 2
   attackLocation: {fileID: 1895685579}
   attacksHitLayer:
     serializedVersion: 2
@@ -1249,6 +1251,7 @@ GameObject:
   - component: {fileID: 685420529}
   - component: {fileID: 685420528}
   - component: {fileID: 685420530}
+  - component: {fileID: 685420531}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1339,6 +1342,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &685420531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685420523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c749cbf7d2b5c4d82c26dab9dd6282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 100
 --- !u!1 &709189534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a10319c6ec21387429e25508ba15f785, type: 3}

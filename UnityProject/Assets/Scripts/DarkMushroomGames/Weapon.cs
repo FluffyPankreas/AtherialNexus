@@ -32,7 +32,7 @@ namespace DarkMushroomGames
 
         public void SecondaryFire()
         {
-            Debug.Log("Secondary Fire.");
+            Debug.Log("Secondary Fire. Still need to be implemented.");
         }
     }
 }
