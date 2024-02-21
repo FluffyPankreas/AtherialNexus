@@ -1,15 +1,17 @@
-using System;
 using UnityEngine;
 
 namespace DarkMushroomGames
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField,Tooltip("The enemy prefab that will be spawned.")]
+        [SerializeField, Tooltip("The enemy prefab that will be spawned.")]
         private Enemy enemyPrefab;
 
         [SerializeField, Tooltip("The amount of time in seconds that has to elapse before the next enemy will spawn.")]
-        private float spawnCooldown =5f;
+        private float spawnCooldown = 5f;
+
+        [SerializeField, Tooltip("The point at which the enemy will be spawned.")]
+        private Transform spawnPoint;
 
         private float _currentCooldown;
 
@@ -17,6 +19,7 @@ namespace DarkMushroomGames
         {
             _currentCooldown = spawnCooldown;
         }
+
         public void Update()
         {
             _currentCooldown -= Time.deltaTime;
@@ -29,7 +32,7 @@ namespace DarkMushroomGames
 
         private void CreateNewEnemy()
         {
-            
+            var newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
         }
     }
 }
