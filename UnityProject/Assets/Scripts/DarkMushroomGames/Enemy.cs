@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 
 namespace DarkMushroomGames
@@ -12,28 +13,82 @@ namespace DarkMushroomGames
     {
         [SerializeField, Tooltip("The target the agent will track.")]
         private Transform target;
+
+        [SerializeField,Tooltip("The attack distance of the agent.")]
+        private float attackDistance;
+
+        [SerializeField, Tooltip("The location the attack happens.")]
+        private Transform attackLocation;
+
+        [SerializeField] private LayerMask attacksHitLayer;
+        [SerializeField] private float attackRadius;
+
+        [SerializeField]
+        private float telegraphingTime = 1f;
+        [SerializeField]
+        private float attackTime = 0.2f;
         
         private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
+        private bool _attacking = false;
 
         
         public void Awake()
         {
+            Debug.Assert(target != null,
+                "Currently the target has to be assigned in the editor. Please make sure to assign an appropriate transform.");
+            
             _hitPoints = GetComponent<HitPoints>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
+
+            _navMeshAgent.stoppingDistance = attackDistance;
         }
 
         public void Update()
         {
-            if (target != null)
-            {
-                _navMeshAgent.destination = target.position;
-            }
+            _navMeshAgent.destination = target.position;
 
+            if (_navMeshAgent.remainingDistance <= attackDistance && !_attacking)
+            {
+                _navMeshAgent.isStopped = true;
+                _attacking = true;
+                TelegraphAttack();
+            }
+            
             if (_hitPoints.HitPointsLeft <= 0)
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void TelegraphAttack()
+        {
+            GetComponent<MeshRenderer>().material.color = Color.yellow;
+            Invoke(nameof(Attack),telegraphingTime);
+        }
+        
+        private readonly Collider[] _results = new Collider[2];
+        private void Attack()
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red;
+
+            
+            var hits = Physics.OverlapSphereNonAlloc(attackLocation.position, attackRadius, _results, attacksHitLayer);
+            Debug.Log("Hits: " + hits.ToString());
+             for (int i = 0; i < hits; i++)
+             {
+                 Debug.Log(_results[i].gameObject.name);
+             }
+            
+            
+            Invoke(nameof(ActivateAgent), attackTime);
+        }
+
+        private void ActivateAgent()
+        {
+            _navMeshAgent.isStopped = false;
+            _attacking = false;
+            GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
 }
