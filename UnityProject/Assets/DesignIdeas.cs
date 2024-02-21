@@ -18,11 +18,12 @@ public class DesignIdeas
      * 13) Laser style gun with overheating mechanics.
      * 14) Powerful six shooter.
      * 15) Ammo management? 
-     * 16) Going with the Limbo idea, the player needs to be able to prep for the next round, so while the exact level won't be known we should show the next "reality" or something that they'll enter.
+     * 16) Going with the Limbo idea, the player needs to be able to prep for the next round, so while the exact level won't be known we should show the next "reality" or something that they'll enter. Or the player should be able to choose the reality they want to go to.
      * 17) Poison gun(good as a weapon to kill bosses),
      *      a) Fires blobs that turn into poison clouds that deals damage over time(to the player as well)
      *      b) Fires darts that stack damage as you apply more darts.
      * 18) Running/Jumping uses stamina.
      * 19) Block/Parrying as a mechanic.
+     * 20) Are we going to roll stats for monsters or keep them all exactly the same?
      */
 }
