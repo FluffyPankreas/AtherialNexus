@@ -1,4 +1,5 @@
 using DarkMushroomGames;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Tooltip("The mouse sensitivity.")]
     private float mouseSensitivity = 10f;
-    
+
+    [SerializeField, Tooltip("The UI element that displays the player's health.")]
+    private TMP_Text hitPointsLabel;
 
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
@@ -25,11 +28,13 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping;
 
     private Weapon _equippedWeapon;
+    private HitPoints _hitPoints;
     
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new PlayerControls();
+        _hitPoints = GetComponent<HitPoints>(); 
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -48,6 +53,8 @@ public class PlayerController : MonoBehaviour
         {
              _isJumping = false;
         }
+
+        hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
     }
 
     public void FixedUpdate()
