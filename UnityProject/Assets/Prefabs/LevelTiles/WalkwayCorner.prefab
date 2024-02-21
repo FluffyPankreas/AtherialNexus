@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Walkway-Corner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a10319c6ec21387429e25508ba15f785, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
