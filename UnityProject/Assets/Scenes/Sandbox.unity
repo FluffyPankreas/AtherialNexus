@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 50031746657786423, guid: 5ada0949ce1784b4e905cf459435c8f4, type: 3}
-  spawnCooldown: 5
+  spawnCooldown: 1
   spawnPoint: {fileID: 562122396}
 --- !u!65 &79367071
 BoxCollider:
