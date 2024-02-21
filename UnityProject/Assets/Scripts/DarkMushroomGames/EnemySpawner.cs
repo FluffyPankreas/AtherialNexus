@@ -8,8 +8,8 @@ namespace DarkMushroomGames
         [SerializeField,Tooltip("The enemy prefab that will be spawned.")]
         private Enemy enemyPrefab;
 
-        [SerializeField, Tooltip("The amount of time that has to elapse before the next enemy will spawn.")]
-        private float spawnCooldown;
+        [SerializeField, Tooltip("The amount of time in seconds that has to elapse before the next enemy will spawn.")]
+        private float spawnCooldown =5f;
 
         private float _currentCooldown;
 
