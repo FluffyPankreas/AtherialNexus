@@ -68,16 +68,12 @@ namespace DarkMushroomGames
 
         private void TelegraphAttack()
         {
-            GetComponent<MeshRenderer>().material.color = Color.yellow;
             Invoke(nameof(Attack),telegraphingTime);
         }
         
         private readonly Collider[] _results = new Collider[2];
         private void Attack()
         {
-            GetComponent<MeshRenderer>().material.color = Color.red;
-
-            
             var hits = Physics.OverlapSphereNonAlloc(attackLocation.position, attackRadius, _results, attacksHitLayer);
             for (int i = 0; i < hits; i++)
             {
@@ -93,7 +89,6 @@ namespace DarkMushroomGames
         {
             _navMeshAgent.isStopped = false;
             _attacking = false;
-            GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
 }
