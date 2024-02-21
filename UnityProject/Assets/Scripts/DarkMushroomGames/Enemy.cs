@@ -40,8 +40,10 @@ namespace DarkMushroomGames
         
         public void Awake()
         {
-            Debug.Assert(target != null,
-                "Currently the target has to be assigned in the editor. Please make sure to assign an appropriate transform.");
+            if (target == null)
+            {
+                target = GameObject.FindWithTag("Player").transform;
+            }
             
             _hitPoints = GetComponent<HitPoints>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
