@@ -25,6 +25,8 @@ public class DesignIdeas
      * 18) Running/Jumping uses stamina.
      * 19) Block/Parrying as a mechanic.
      * 20) Are we going to roll stats for monsters or keep them all exactly the same?
+     * 21) Lightning gun
+     *      a) Jumps from enemy to enemy.
      */
 
 
