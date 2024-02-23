@@ -26,4 +26,19 @@ public class DesignIdeas
      * 19) Block/Parrying as a mechanic.
      * 20) Are we going to roll stats for monsters or keep them all exactly the same?
      */
+
+
+
+
+}
+
+public class LoreIdeas
+
+{ 
+
+/* 
+ * 01) You are in a simulated version of the world you playing in. The truth is too horrifying to actually experience. Hence the pleasant colors and soft surfaces. But occasionally when you take damage you could see a glimpse of what it actually looks like, which could be horrifying and cool. You start at the Nexus in Limbo where are realites come together and are simulated per a lifeform basis. But the corruption has started to spread, and the avatars are presentated as robots. The truth is far too terrifying and beyond human comprehension
+
+
+*/
 }
