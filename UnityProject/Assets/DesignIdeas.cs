@@ -27,6 +27,8 @@ public class DesignIdeas
      * 20) Are we going to roll stats for monsters or keep them all exactly the same?
      * 21) Lightning gun
      *      a) Jumps from enemy to enemy.
+     * 22) "Expanding" level by player actions. Think bridges in D3.
+     * 23) Environmental things that allows the player to do extra damage.
      */
 
 
