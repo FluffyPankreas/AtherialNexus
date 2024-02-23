@@ -39,7 +39,6 @@ namespace DarkMushroomGames
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Player") && _remainingCooldown <= 0)
             {
-                Debug.Log("Smacking the player.");
                 _remainingCooldown = attackCooldown;
 
                 var hp = other.GetComponent<HitPoints>();
