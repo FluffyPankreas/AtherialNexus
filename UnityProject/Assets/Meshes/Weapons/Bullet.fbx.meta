@@ -3,7 +3,12 @@ guid: 570826dcdf691c0468e86a36d85942b1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BULLETMAT
+    second: {fileID: 2100000, guid: ff438386e0c42764082796b343c6a281, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
