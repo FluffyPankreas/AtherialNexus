@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
-
 
 namespace DarkMushroomGames
 {
@@ -13,11 +11,6 @@ namespace DarkMushroomGames
     {
         [SerializeField, Tooltip("The target the agent will track.")]
         private Transform target;
-
-        [SerializeField, Tooltip("Damage done with attacks.")]
-        private int attackDamage;
-
-        [SerializeField] private LayerMask attacksHitLayer;
 
         private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
@@ -42,13 +35,6 @@ namespace DarkMushroomGames
             {
                 Destroy(gameObject);
             }
-        }
-
-        private readonly Collider[] _results = new Collider[2];
-
-        private void ActivateAgent()
-        {
-            _navMeshAgent.isStopped = false;
         }
     }
 }
