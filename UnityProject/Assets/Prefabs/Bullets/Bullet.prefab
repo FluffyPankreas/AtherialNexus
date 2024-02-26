@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoDamage: 1
+  hitSound: {fileID: 8300000, guid: f3e50e58721e02c4d8c3241ef24f4a0e, type: 3}
 --- !u!114 &8733638157206419630
 MonoBehaviour:
   m_ObjectHideFlags: 0
