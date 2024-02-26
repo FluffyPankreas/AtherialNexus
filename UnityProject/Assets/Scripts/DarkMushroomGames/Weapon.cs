@@ -1,4 +1,5 @@
 using System;
+using DarkMushroomGames.Managers;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The ammo that is loaded into the gun.")]
         private Ammo loadedAmmo;
+
+        [SerializeField,Tooltip("The sound effect for when the gun's primary fire is used.")]
+        private AudioClip primaryFireSoundEffect;
         
         public void Awake()
         {
@@ -28,6 +32,8 @@ namespace DarkMushroomGames
         {
             var bullet = Instantiate(loadedAmmo, weaponMuzzle.position, Quaternion.identity);
             bullet.transform.forward = weaponMuzzle.forward;
+
+            SoundEffectsManager.Instance.PlaySoundEffectsClip(primaryFireSoundEffect, transform);
         }
 
         public void SecondaryFire()

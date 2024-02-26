@@ -9376,7 +9376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrintTrace: 0
-  soundEffectPrefab: {fileID: 0}
+  soundEffectPrefab: {fileID: 1882735432568415430, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
 --- !u!4 &1643466426
 Transform:
   m_ObjectHideFlags: 0
@@ -12894,67 +12894,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &3170640651759596276
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874125348505110844, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993655089905913064, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_Name
-      value: SoundEffectPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993655089905913064, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3cf6afe1c16430945952408a5ae010d7, type: 3}
 --- !u!33 &3469287837369003422
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12977,6 +12916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponMuzzle: {fileID: 1409708520}
   loadedAmmo: {fileID: 7663968445071275040, guid: c5377a776c317dd499d746aeae6359b9, type: 3}
+  primaryFireSoundEffect: {fileID: 8300000, guid: 925b3082ce9b99f40b1ebf0f68516745, type: 3}
 --- !u!4 &7920284844001804833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3980389306635020315, guid: 8422be21aa338a642ab2ae2fc57156b8, type: 3}
@@ -13121,4 +13061,3 @@ SceneRoots:
   - {fileID: 671728705}
   - {fileID: 1937675836}
   - {fileID: 1643466426}
-  - {fileID: 3170640651759596276}
