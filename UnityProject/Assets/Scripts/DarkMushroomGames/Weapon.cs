@@ -33,7 +33,7 @@ namespace DarkMushroomGames
             var bullet = Instantiate(loadedAmmo, weaponMuzzle.position, Quaternion.identity);
             bullet.transform.forward = weaponMuzzle.forward;
 
-            SoundEffectsManager.Instance.PlaySoundEffectsClip(primaryFireSoundEffect, transform);
+            SoundManager.Instance.PlaySoundEffectClip(primaryFireSoundEffect, transform);
         }
 
         public void SecondaryFire()

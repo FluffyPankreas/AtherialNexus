@@ -27,7 +27,7 @@ namespace DarkMushroomGames
 
             if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                SoundEffectsManager.Instance.PlaySoundEffectsClip(hitSound, player.transform);    
+                SoundManager.Instance.PlaySoundEffectClip(hitSound, player.transform);    
             }
             
             
