@@ -27,6 +27,9 @@ namespace DarkMushroomGames
         [SerializeField, Tooltip("The distance at which the agent will start chasing the player.")]
         private float chaseDistance;
 
+        [SerializeField, Tooltip("The controller for the enemy animations.")]
+        private Animator animationController;
+        
         private Transform _anchor;
         private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
@@ -35,7 +38,8 @@ namespace DarkMushroomGames
         private bool _roaming = true;
         private float _timer;
         private float _nextRoamTime;
-        
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+
         public void Awake()
         {
             if (target == null)
@@ -93,6 +97,15 @@ namespace DarkMushroomGames
             if (_chasing)
             {
                 _navMeshAgent.destination = target.position;
+            }
+
+            if (_navMeshAgent.remainingDistance <= 0)
+            {
+                animationController.SetBool(IsMoving, false);
+            }
+            else
+            {
+                animationController.SetBool(IsMoving, true);
             }
         }
 
