@@ -1,5 +1,6 @@
 using DarkMushroomGames.Managers;
 using DarkMushroomGames.Architecture;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -62,12 +63,6 @@ namespace DarkMushroomGames
 
         public void Update()
         {
-            if (_hitPoints.HitPointsLeft <= 0)
-            {
-                SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
-                Destroy(gameObject);
-            }
-
             if (Vector3.Distance(transform.position, target.position) < chaseDistance)
             {
                 Debug.Log("Switching to Chase.");
@@ -99,7 +94,7 @@ namespace DarkMushroomGames
                 _navMeshAgent.destination = target.position;
             }
 
-            if (_navMeshAgent.remainingDistance <= 0)
+            if ( _navMeshAgent.remainingDistance <= 0)
             {
                 animationController.SetBool(IsMoving, false);
             }
@@ -107,6 +102,13 @@ namespace DarkMushroomGames
             {
                 animationController.SetBool(IsMoving, true);
             }
+            
+            if (_hitPoints.HitPointsLeft <= 0)
+            {
+                SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
+                Destroy(gameObject);
+            }
+
         }
 
         public void SetAnchor(Transform newAnchor)
