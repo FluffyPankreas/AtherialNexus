@@ -116,11 +116,8 @@ namespace DarkMushroomGames
 
         private void SetNewRoamTarget()
         {
-            Debug.Log("Choosing new wander direction.");
-
             var newPos = NavMeshExtensions.RandomNavSphere(_anchor.position, wanderRadius, -1);
             _navMeshAgent.SetDestination(newPos);
-            Debug.Log(_navMeshAgent.destination);
             _nextRoamTime = Random.Range(roamingTime.x, roamingTime.y);
             _timer = 0;
         }
