@@ -187,10 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  attackDamage: 2
-  attacksHitLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  killedClips:
+  - {fileID: 8300000, guid: 28a80661e4009644d816ad96d94d1a5f, type: 3}
+  - {fileID: 8300000, guid: 0a32887fc7006e346b0d66ee4539338f, type: 3}
+  - {fileID: 8300000, guid: 13a7f9af600dcd443b0522dcf04d1d93, type: 3}
 --- !u!114 &2324020570296404038
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using DarkMushroomGames.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,9 @@ namespace DarkMushroomGames
     {
         [SerializeField, Tooltip("The target the agent will track.")]
         private Transform target;
+
+        [SerializeField,Tooltip("The list of clips that will be played when the enemy dies.")]
+        private AudioClip[] killedClips;
 
         private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
@@ -33,6 +37,7 @@ namespace DarkMushroomGames
 
             if (_hitPoints.HitPointsLeft <= 0)
             {
+                SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
                 Destroy(gameObject);
             }
         }
