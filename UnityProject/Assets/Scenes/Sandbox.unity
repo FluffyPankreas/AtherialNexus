@@ -919,13 +919,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: hitPointsLabel
+      value: 
+      objectReference: {fileID: 1872584752}
     - target: {fileID: 5803444811889316515, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5803444811889316515, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5803444811889316515, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7784,6 +7788,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee67045eb563f534dae20eaf52b258d7, type: 3}
+--- !u!114 &1872584752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6223284726714479622, guid: 0300f541688adee41894432a9fb61918, type: 3}
+  m_PrefabInstance: {fileID: 1794878765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1872597805
 PrefabInstance:
   m_ObjectHideFlags: 0
