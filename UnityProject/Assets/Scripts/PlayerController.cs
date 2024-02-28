@@ -45,11 +45,6 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        if (Keyboard.current.escapeKey.isPressed)
-        {
-            Application.Quit();
-        }
-
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
     }
 
