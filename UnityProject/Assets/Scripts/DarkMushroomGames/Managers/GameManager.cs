@@ -9,23 +9,37 @@ namespace DarkMushroomGames.Managers
         public delegate void GameUnPaused();
 
         public static event GamePaused OnGamePause;
-        public static event GamePaused OnGameUnPause;
+        public static event GameUnPaused OnGameUnPause;
+
         public bool IsPaused { get; private set; } = false;
 
+        public void Start()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            
+        }
+        
         public void PauseGame()
         {
             Debug.Log("Pausing game.");
             Time.timeScale = 0;
-            IsPaused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
             OnGamePause!.Invoke();
+            IsPaused = true;
         }
 
         public void UnPauseGame()
         {
             Debug.Log("UnPausing Game.");
             Time.timeScale = 1;
-            IsPaused = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            
             OnGameUnPause!.Invoke();
+            IsPaused = false;
         }
     }
 }

@@ -23,8 +23,6 @@ namespace DarkMushroomGames
                 {
                     GameManager.Instance.UnPauseGame();
                     optionsPanel.gameObject.SetActive(false);
-                    
-                    
                 }
                 else
                 {

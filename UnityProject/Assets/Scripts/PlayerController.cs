@@ -38,9 +38,6 @@ public class PlayerController : MonoBehaviour
         _playerControls = new PlayerControls();
         _hitPoints = GetComponent<HitPoints>(); 
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         _equippedWeapon = GetComponentInChildren<Weapon>(true);
     }
 

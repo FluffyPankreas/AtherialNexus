@@ -787,10 +787,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 710681257}
   m_HandleRect: {fileID: 696140541}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1554,10 +1554,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 344747171}
   m_HandleRect: {fileID: 1210430640}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3462,6 +3462,7 @@ GameObject:
   - component: {fileID: 656387551}
   - component: {fileID: 656387550}
   - component: {fileID: 656387549}
+  - component: {fileID: 656387553}
   m_Layer: 5
   m_Name: GameHud
   m_TagString: Untagged
@@ -3553,6 +3554,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &656387553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656387548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca75c735426765e459803be0e2c2a2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionsPanel: {fileID: 183880635}
 --- !u!1001 &671728705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8099,10 +8113,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 416241308}
   m_HandleRect: {fileID: 184850059}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
