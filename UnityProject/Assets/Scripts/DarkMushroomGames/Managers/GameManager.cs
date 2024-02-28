@@ -1,11 +1,15 @@
 using DarkMushroomGames.Architecture;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace DarkMushroomGames.Managers
 {
     public class GameManager : MonoBehaviourSingleton<GameManager>
     {
+        public delegate void GamePaused();
+        public delegate void GameUnPaused();
+
+        public static event GamePaused OnGamePause;
+        public static event GamePaused OnGameUnPause;
         public bool IsPaused { get; private set; } = false;
 
         public void PauseGame()
@@ -13,28 +17,15 @@ namespace DarkMushroomGames.Managers
             Debug.Log("Pausing game.");
             Time.timeScale = 0;
             IsPaused = true;
+            OnGamePause!.Invoke();
         }
 
         public void UnPauseGame()
         {
-            Debug.Log("Unpausing Game.");
+            Debug.Log("UnPausing Game.");
             Time.timeScale = 1;
             IsPaused = false;
-        }
-
-        public void Update()
-        {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                if (IsPaused)
-                {
-                    UnPauseGame();
-                }
-                else
-                {
-                    PauseGame();
-                }
-            }
+            OnGameUnPause!.Invoke();
         }
     }
 }

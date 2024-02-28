@@ -1,5 +1,6 @@
 using System;
 using DarkMushroomGames;
+using DarkMushroomGames.Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -43,9 +44,21 @@ public class PlayerController : MonoBehaviour
         _equippedWeapon = GetComponentInChildren<Weapon>(true);
     }
 
+    public void Start()
+    {
+        GameManager.OnGamePause += OnGamePause;
+        GameManager.OnGameUnPause += OnGameUnPause;
+    }
+
     public void Update()
     {
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
+    }
+
+    public void OnDestroy()
+    {
+        GameManager.OnGamePause -= OnGamePause;
+        GameManager.OnGameUnPause -= OnGameUnPause;
     }
 
     public void FixedUpdate()
@@ -68,6 +81,7 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.Jump.started += Jump;
         _playerControls.Default.PrimaryFire.performed += PrimaryFire;
         _playerControls.Default.SecondaryFire.performed += SecondaryFire;
+        
     }
 
     public void OnDisable()
@@ -132,4 +146,16 @@ public class PlayerController : MonoBehaviour
     {
         _equippedWeapon.SecondaryFire();
     }
+
+    private void OnGamePause()
+    {
+        _playerControls.Default.Disable();
+    }
+
+    private void OnGameUnPause()
+    {
+        _playerControls.Default.Enable();
+    }
+
+
 }
