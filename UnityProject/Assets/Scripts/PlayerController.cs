@@ -89,6 +89,10 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.Disable();
     }
 
+    public void SetMouseSensitivity(float level)
+    {
+        mouseSensitivity = level;
+    }
 
     private void Jump(InputAction.CallbackContext context)
     {
