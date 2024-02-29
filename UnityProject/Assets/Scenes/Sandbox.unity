@@ -1034,9 +1034,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: maxStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: staminaLabel
+      value: 
+      objectReference: {fileID: 1794878766}
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
       propertyPath: hitPointsLabel
       value: 
       objectReference: {fileID: 1872584752}
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: sprintModifier
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: staminaDrainRate
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912291372353548583, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
+      propertyPath: staminaChargeRate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5803444811889316515, guid: 55f4c77a608c7d44599bf47acfaa0161, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8054,6 +8074,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0300f541688adee41894432a9fb61918, type: 3}
+--- !u!114 &1794878766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 659936300991179079, guid: 0300f541688adee41894432a9fb61918, type: 3}
+  m_PrefabInstance: {fileID: 1794878765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1798935995
 PrefabInstance:
   m_ObjectHideFlags: 0

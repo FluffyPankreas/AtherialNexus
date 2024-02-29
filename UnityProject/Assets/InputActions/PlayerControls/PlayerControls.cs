@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b70e4f9-f5b3-406d-89b8-b4d0bdbaec09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01173a1e-e1f2-4ebb-b1ce-5df390c180e3"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Default_MouseLook = m_Default.FindAction("MouseLook", throwIfNotFound: true);
         m_Default_PrimaryFire = m_Default.FindAction("PrimaryFire", throwIfNotFound: true);
         m_Default_SecondaryFire = m_Default.FindAction("SecondaryFire", throwIfNotFound: true);
+        m_Default_Sprint = m_Default.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_MouseLook;
     private readonly InputAction m_Default_PrimaryFire;
     private readonly InputAction m_Default_SecondaryFire;
+    private readonly InputAction m_Default_Sprint;
     public struct DefaultActions
     {
         private @PlayerControls m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @MouseLook => m_Wrapper.m_Default_MouseLook;
         public InputAction @PrimaryFire => m_Wrapper.m_Default_PrimaryFire;
         public InputAction @SecondaryFire => m_Wrapper.m_Default_SecondaryFire;
+        public InputAction @Sprint => m_Wrapper.m_Default_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SecondaryFire.started += instance.OnSecondaryFire;
             @SecondaryFire.performed += instance.OnSecondaryFire;
             @SecondaryFire.canceled += instance.OnSecondaryFire;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -303,6 +329,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SecondaryFire.started -= instance.OnSecondaryFire;
             @SecondaryFire.performed -= instance.OnSecondaryFire;
             @SecondaryFire.canceled -= instance.OnSecondaryFire;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -327,5 +356,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnPrimaryFire(InputAction.CallbackContext context);
         void OnSecondaryFire(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

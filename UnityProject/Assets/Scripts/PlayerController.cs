@@ -1,9 +1,11 @@
 using System;
+using System.Globalization;
 using DarkMushroomGames;
 using DarkMushroomGames.Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -20,9 +22,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The mouse sensitivity.")]
     private float mouseSensitivity = 10f;
 
+    [SerializeField, Tooltip("The modifier for using the sprint functionality.")]
+    private float sprintModifier;
+
+    [SerializeField, Tooltip("The amount of maximum stamina.")]
+    private float maxStamina;
+
+    [SerializeField, Tooltip("The rate of stamina recharge rate.")]
+    private float staminaChargeRate;
+
+    [SerializeField, Tooltip("The rate at which the stamina is drained while sprinting.")]
+    private float staminaDrainRate;
+
     [SerializeField, Tooltip("The UI element that displays the player's health.")]
     private TMP_Text hitPointsLabel;
 
+    [SerializeField, Tooltip("The UI element that displays the player's stamina")]
+    private TMP_Text staminaLabel;
+    
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
 
@@ -31,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private Weapon _equippedWeapon;
     private HitPoints _hitPoints;
+    private float _staminaLeft;
     
     public void Awake()
     {
@@ -39,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _hitPoints = GetComponent<HitPoints>(); 
 
         _equippedWeapon = GetComponentInChildren<Weapon>(true);
+        _staminaLeft = maxStamina;
     }
 
     public void Start()
@@ -50,6 +69,7 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
+        staminaLabel.text = _staminaLeft.ToString("0");
     }
 
     public void OnDestroy()
@@ -106,6 +126,8 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         var readInput = _playerControls.Default.Movement.ReadValue<Vector2>();
+        var isSprinting = _playerControls.Default.Sprint.ReadValue<float>() != 0;
+        
         
         var direction = Vector3.zero;
         if (readInput.y > 0)
@@ -120,7 +142,21 @@ public class PlayerController : MonoBehaviour
             
         direction = direction.normalized;
 
-        _rigidbody.velocity = new Vector3(direction.x * moveSpeed, _rigidbody.velocity.y, direction.z * moveSpeed);
+        var runningSpeed = moveSpeed;
+        if (readInput.y > 0 && isSprinting && _staminaLeft > 0)
+        {
+            runningSpeed = moveSpeed * sprintModifier;
+            _staminaLeft -= staminaDrainRate * Time.deltaTime;
+        }
+
+        if (!isSprinting)
+        {
+            _staminaLeft += staminaChargeRate * Time.deltaTime;
+        }
+        
+        _staminaLeft = Mathf.Clamp(_staminaLeft, 0, maxStamina);
+        
+        _rigidbody.velocity = new Vector3(direction.x * runningSpeed, _rigidbody.velocity.y, direction.z * runningSpeed);
     }
 
     private void HandleMouseLook()
