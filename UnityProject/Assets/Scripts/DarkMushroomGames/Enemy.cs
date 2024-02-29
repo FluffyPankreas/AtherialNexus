@@ -65,14 +65,12 @@ namespace DarkMushroomGames
         {
             if (Vector3.Distance(transform.position, target.position) < chaseDistance)
             {
-                Debug.Log("Switching to Chase.");
                 _chasing = true;
                 _roaming = false;
             }
             
             if (Vector3.Distance(transform.position, target.position) >= chaseDistance && !_roaming)
             {
-                Debug.Log("Switching to Roaming");
                 _roaming = true;
                 _chasing = false;
                 
