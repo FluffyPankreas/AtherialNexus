@@ -3,6 +3,7 @@ using DarkMushroomGames.Architecture;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 namespace DarkMushroomGames
@@ -30,6 +31,9 @@ namespace DarkMushroomGames
 
         [SerializeField, Tooltip("The controller for the enemy animations.")]
         private Animator animationController;
+
+        [SerializeField,Tooltip("The slider component that will indicate the character's health.")]
+        private Slider healthIndicator;
         
         private Transform _anchor;
         private HitPoints _hitPoints;
@@ -58,11 +62,13 @@ namespace DarkMushroomGames
 
         public void Start()
         {
-            SetNewRoamTarget();            
+            SetNewRoamTarget();
+            healthIndicator.maxValue = _hitPoints.MaxHitPoints;
         }
 
         public void Update()
         {
+            healthIndicator.value = _hitPoints.HitPointsLeft;
             if (Vector3.Distance(transform.position, target.position) < chaseDistance)
             {
                 _chasing = true;
