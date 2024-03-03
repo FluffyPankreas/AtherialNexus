@@ -68,6 +68,7 @@ namespace DarkMushroomGames
 
         public void Update()
         {
+            healthIndicator.gameObject.SetActive(_hitPoints.HitPointsLeft != _hitPoints.MaxHitPoints);
             healthIndicator.value = _hitPoints.HitPointsLeft;
             if (Vector3.Distance(transform.position, target.position) < chaseDistance)
             {
