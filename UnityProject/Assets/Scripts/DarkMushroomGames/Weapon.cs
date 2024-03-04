@@ -1,6 +1,4 @@
-using System;
 using DarkMushroomGames.Managers;
-using UnityEditor;
 using UnityEngine;
 
 namespace DarkMushroomGames
@@ -18,11 +16,26 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The sound effect for when the gun's primary fire is used.")]
         private AudioClip primaryFireSoundEffect;
+
+        [SerializeField,Tooltip("The time it takes for the secondary fire to come off of cooldown.")]
+        private float secondaryFireCooldown = 5f;
+
+        private float _remainingSecondaryFireCooldown;
         
         public void Awake()
         {
             Debug.Assert(loadedAmmo != null,
                 "The ammo should always be set to something. A gun without ammo will break the game.", gameObject);
+
+            _remainingSecondaryFireCooldown = 0;
+        }
+
+        public void Update()
+        {
+            _remainingSecondaryFireCooldown -= Time.deltaTime;
+            _remainingSecondaryFireCooldown =
+                Mathf.Clamp(_remainingSecondaryFireCooldown, 0, _remainingSecondaryFireCooldown);
+
         }
 
         /// <summary>
@@ -38,7 +51,15 @@ namespace DarkMushroomGames
 
         public void SecondaryFire()
         {
-            Debug.Log("Secondary Fire. Still need to be implemented.");
+            if (_remainingSecondaryFireCooldown <= 0)
+            {
+                Debug.Log("Firing the gun.");
+                _remainingSecondaryFireCooldown = secondaryFireCooldown;
+            }
+            else
+            {
+                Debug.Log("The gun can't be fired. Still on cooldown.");
+            }
         }
     }
 }
