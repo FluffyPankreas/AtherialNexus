@@ -12,6 +12,7 @@ namespace DarkMushroomGames
         private int maxHitPoints = 10;
 
         public int HitPointsLeft { get; private set; }
+        public int MaxHitPoints => maxHitPoints;
 
         public void Awake()
         {
