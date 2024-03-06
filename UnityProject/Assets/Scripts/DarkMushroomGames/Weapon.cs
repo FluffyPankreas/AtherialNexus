@@ -16,6 +16,9 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The sound effect for when the gun's primary fire is used.")]
         private AudioClip primaryFireSoundEffect;
+        
+        [SerializeField,Tooltip("The sound effect for when the gun's secondary fire is used.")]
+        private AudioClip secondaryFireSoundEffect;
 
         [SerializeField,Tooltip("The time it takes for the secondary fire to come off of cooldown.")]
         private float secondaryFireCooldown = 5f;
@@ -69,6 +72,7 @@ namespace DarkMushroomGames
             {
                 _remainingSecondaryFireCooldown = secondaryFireCooldown;
 
+                SoundManager.Instance.PlaySoundEffectClip(secondaryFireSoundEffect, transform);
                 var startPosition = weaponMuzzle.position;
                 var direction = weaponMuzzle.forward;
 
