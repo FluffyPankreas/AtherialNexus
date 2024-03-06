@@ -28,6 +28,12 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The mask to check the raycast against.")]
         private LayerMask secondaryFireHitMask;
+
+        [SerializeField,Tooltip("The amount of damage the secondary fire deals to enemies.")]
+        private int secondaryFireDamage;
+
+        [SerializeField, Tooltip("The amount of damage dropoff for each enemy penetrated.")]
+        private int secondaryFireDamageDropoff;
         
         private float _remainingSecondaryFireCooldown;
         
@@ -75,12 +81,15 @@ namespace DarkMushroomGames
                 fireEffect.SetPosition(0, shootingRay.GetPoint(0));
                 fireEffect.SetPosition(1,shootingRay.GetPoint(secondaryFireRange));
 
+                var remainingDamage = secondaryFireDamage;
                 foreach (var hit in hits)
                 {
                     var colliderGameObject = hit.collider.gameObject;
                     Debug.Log(colliderGameObject.name, colliderGameObject);
                 
-                    colliderGameObject.GetComponent<HitPoints>().SubtractHitPoints(1);
+                    colliderGameObject.GetComponent<HitPoints>().SubtractHitPoints(remainingDamage);
+                    remainingDamage -= secondaryFireDamageDropoff;
+                    remainingDamage = Mathf.Clamp(remainingDamage, 0, secondaryFireDamage);
                 }
             }
             else
