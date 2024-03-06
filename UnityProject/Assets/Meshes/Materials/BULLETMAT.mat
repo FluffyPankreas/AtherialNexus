@@ -126,7 +126,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.9009434, g: 1, b: 0.99622643, a: 1}
     - _Color: {r: 0.9009434, g: 1, b: 0.9962264, a: 1}
-    - _EmissionColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    - _EmissionColor: {r: 0, g: 6.5725904, b: 9.600778, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
