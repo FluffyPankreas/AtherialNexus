@@ -457,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 3766447137314693029, guid: 491dc0eb46427124280266e1ec447048, type: 3}
     - target: {fileID: 942617269685091754, guid: d774b6bf34ce56c4da80c182e43fbdbc, type: 3}
       propertyPath: secondaryFireCooldown
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 942617269685091754, guid: d774b6bf34ce56c4da80c182e43fbdbc, type: 3}
       propertyPath: secondaryFireDamageDropoff
