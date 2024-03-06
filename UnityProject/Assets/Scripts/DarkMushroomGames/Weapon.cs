@@ -20,6 +20,15 @@ namespace DarkMushroomGames
         [SerializeField,Tooltip("The time it takes for the secondary fire to come off of cooldown.")]
         private float secondaryFireCooldown = 5f;
 
+        [SerializeField,Tooltip("The range of the secondary fire.")]
+        private float secondaryFireRange = 10f;
+
+        [SerializeField,Tooltip("The line render to show the secondary fire.")]
+        private LineRenderer secondaryFireEffect;
+
+        public LayerMask testMask;
+
+        public Camera cameraTest;
         private float _remainingSecondaryFireCooldown;
         
         public void Awake()
@@ -28,6 +37,7 @@ namespace DarkMushroomGames
                 "The ammo should always be set to something. A gun without ammo will break the game.", gameObject);
 
             _remainingSecondaryFireCooldown = 0;
+            secondaryFireEffect.positionCount = 2;
         }
 
         public void Update()
@@ -35,7 +45,6 @@ namespace DarkMushroomGames
             _remainingSecondaryFireCooldown -= Time.deltaTime;
             _remainingSecondaryFireCooldown =
                 Mathf.Clamp(_remainingSecondaryFireCooldown, 0, _remainingSecondaryFireCooldown);
-
         }
 
         /// <summary>
@@ -53,8 +62,25 @@ namespace DarkMushroomGames
         {
             if (_remainingSecondaryFireCooldown <= 0)
             {
-                Debug.Log("Firing the gun.");
                 _remainingSecondaryFireCooldown = secondaryFireCooldown;
+
+                var startPosition = weaponMuzzle.position;
+                var direction = weaponMuzzle.forward;
+            
+                var shootingRay = new Ray(startPosition, direction);    
+                var hits = Physics.RaycastAll(shootingRay, secondaryFireRange, testMask);
+
+                secondaryFireEffect.SetPosition(0, weaponMuzzle.InverseTransformPoint(shootingRay.GetPoint(0)));
+                secondaryFireEffect.SetPosition(1,
+                    weaponMuzzle.InverseTransformPoint(shootingRay.GetPoint(secondaryFireRange)));
+
+                foreach (var hit in hits)
+                {
+                    var colliderGameObject = hit.collider.gameObject;
+                    Debug.Log(colliderGameObject.name, colliderGameObject);
+                
+                    colliderGameObject.GetComponent<HitPoints>().SubtractHitPoints(1);
+                }
             }
             else
             {
@@ -63,4 +89,5 @@ namespace DarkMushroomGames
         }
     }
 }
+
 
