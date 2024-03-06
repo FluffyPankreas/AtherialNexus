@@ -24,11 +24,11 @@ namespace DarkMushroomGames
         private float secondaryFireRange = 10f;
 
         [SerializeField,Tooltip("The line render to show the secondary fire.")]
-        private LineRenderer secondaryFireEffect;
+        private LineRendererController secondaryFireEffect;
 
-        public LayerMask testMask;
-
-        public Camera cameraTest;
+        [SerializeField,Tooltip("The mask to check the raycast against.")]
+        private LayerMask secondaryFireHitMask;
+        
         private float _remainingSecondaryFireCooldown;
         
         public void Awake()
@@ -37,7 +37,6 @@ namespace DarkMushroomGames
                 "The ammo should always be set to something. A gun without ammo will break the game.", gameObject);
 
             _remainingSecondaryFireCooldown = 0;
-            secondaryFireEffect.positionCount = 2;
         }
 
         public void Update()
@@ -66,13 +65,15 @@ namespace DarkMushroomGames
 
                 var startPosition = weaponMuzzle.position;
                 var direction = weaponMuzzle.forward;
+
+                Debug.DrawRay(startPosition, direction * secondaryFireRange, Color.red, 10);
             
                 var shootingRay = new Ray(startPosition, direction);    
-                var hits = Physics.RaycastAll(shootingRay, secondaryFireRange, testMask);
+                var hits = Physics.RaycastAll(shootingRay, secondaryFireRange, secondaryFireHitMask);
 
-                secondaryFireEffect.SetPosition(0, weaponMuzzle.InverseTransformPoint(shootingRay.GetPoint(0)));
-                secondaryFireEffect.SetPosition(1,
-                    weaponMuzzle.InverseTransformPoint(shootingRay.GetPoint(secondaryFireRange)));
+                var fireEffect = Instantiate(secondaryFireEffect);
+                fireEffect.SetPosition(0, shootingRay.GetPoint(0));
+                fireEffect.SetPosition(1,shootingRay.GetPoint(secondaryFireRange));
 
                 foreach (var hit in hits)
                 {
