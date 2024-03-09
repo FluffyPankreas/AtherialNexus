@@ -83,6 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoDamage: 1
   hitSound: {fileID: 8300000, guid: f3e50e58721e02c4d8c3241ef24f4a0e, type: 3}
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &8733638157206419630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +118,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.44, y: 0.09, z: 0.83}
+  m_Size: {x: 0.44, y: 0.83, z: 0.09}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-8123528598192991336
 Rigidbody:

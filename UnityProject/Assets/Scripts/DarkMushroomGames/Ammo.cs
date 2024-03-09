@@ -15,21 +15,30 @@ namespace DarkMushroomGames
         
         [SerializeField,Tooltip("The clip to play when the ammo hits something.")]
         private AudioClip hitSound;
+
+        [SerializeField,Tooltip("The layer mask that this ammo will try to do damage to.")]
+        private LayerMask damageMask;
         
         public void OnCollisionEnter(Collision collision)
         {
-            var hp = collision.gameObject.GetComponent<HitPoints>();
-            if(hp!=null)
-                hp.SubtractHitPoints(ammoDamage);
-
             // TODO: Find a better way to do this.
             var player = GameObject.FindWithTag("Player");
 
-            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if ((damageMask & (1 << collision.collider.gameObject.layer)) != 0)
             {
-                SoundManager.Instance.PlaySoundEffectClip(hitSound, player.transform);    
+                if (hitSound != null)
+                {
+                    SoundManager.Instance.PlaySoundEffectClip(hitSound, player.transform);
+                }
+                else
+                {
+                    Debug.LogWarning("No sound effect setup for the ammo.", gameObject);
+                }
+
+                var hp = collision.gameObject.GetComponent<HitPoints>();
+                if(hp!=null)
+                    hp.SubtractHitPoints(ammoDamage);
             }
-            
             
             Destroy(gameObject);
         }

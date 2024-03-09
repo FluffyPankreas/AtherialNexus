@@ -9,7 +9,7 @@ namespace DarkMushroomGames
     public class Projectile : MonoBehaviour
     {
         [SerializeField, Tooltip("The projectile speed in m/s.")]
-        private int moveSpeed = 5;
+        private float moveSpeed = 5;
 
         public void Update()
         {

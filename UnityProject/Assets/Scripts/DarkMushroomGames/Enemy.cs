@@ -37,6 +37,10 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The distance that the agent will stop from the target in order to attack.")]
         private float attackRange;
+
+        public bool IsChasing => _chasing;
+        public float AttackRange => attackRange;
+        public Transform Target => target;
         
         private Transform _anchor;
         private HitPoints _hitPoints;
