@@ -44,7 +44,6 @@ namespace DarkMushroomGames
 
         private void Attack()
         {
-            Debug.Log("Attack the player.");
             var bullet = Instantiate(ammo, muzzle.position, Quaternion.identity);
             bullet.transform.forward = muzzle.forward;
 

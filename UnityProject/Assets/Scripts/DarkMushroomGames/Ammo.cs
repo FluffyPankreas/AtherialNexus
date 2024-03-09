@@ -39,7 +39,7 @@ namespace DarkMushroomGames
                 if(hp!=null)
                     hp.SubtractHitPoints(ammoDamage);
             }
-            
+
             Destroy(gameObject);
         }
     }

@@ -112,6 +112,15 @@ namespace DarkMushroomGames
             if (_chasing)
             {
                 _navMeshAgent.destination = target.position;
+
+                //Keep the rotation towards the player.
+                if(_navMeshAgent.remainingDistance <= attackRange)
+                {
+                    Vector3 dir = target.transform.position - transform.position;
+                    Quaternion lookRotation = Quaternion.LookRotation(dir);
+                    var rotation = lookRotation.eulerAngles;
+                    transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                }
             }
 
             if ( _navMeshAgent.remainingDistance <= 0)

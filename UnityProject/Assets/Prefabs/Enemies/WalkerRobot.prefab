@@ -128,7 +128,7 @@ MonoBehaviour:
   chaseDistance: 30
   animationController: {fileID: 2655940269956756579}
   healthIndicator: {fileID: 8292417433030027230}
-  attackRange: 10
+  attackRange: 20
 --- !u!114 &4892147612193710294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 7880029056190200921}
   ammo: {fileID: 1955986606634845570, guid: 25bb70fec8d10d2488577e21d0255188, type: 3}
-  attackCooldown: 3
+  attackCooldown: 1.5
 --- !u!65 &845239408927929483
 BoxCollider:
   m_ObjectHideFlags: 0
