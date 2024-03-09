@@ -20,6 +20,9 @@ namespace DarkMushroomGames
         [SerializeField,Tooltip("The sound effect for when the gun's secondary fire is used.")]
         private AudioClip secondaryFireSoundEffect;
 
+        [SerializeField,Tooltip("The sound effect for when the gun's secondary fire cannot used.")]
+        private AudioClip secondaryFireMissFire;
+
         [SerializeField,Tooltip("The time it takes for the secondary fire to come off of cooldown.")]
         private float secondaryFireCooldown = 5f;
 
@@ -89,7 +92,6 @@ namespace DarkMushroomGames
                 foreach (var hit in hits)
                 {
                     var colliderGameObject = hit.collider.gameObject;
-                    Debug.Log(colliderGameObject.name, colliderGameObject);
                 
                     colliderGameObject.GetComponent<HitPoints>().SubtractHitPoints(remainingDamage);
                     remainingDamage -= secondaryFireDamageDropoff;
@@ -98,7 +100,7 @@ namespace DarkMushroomGames
             }
             else
             {
-                Debug.Log("The gun can't be fired. Still on cooldown.");
+                SoundManager.Instance.PlaySoundEffectClip(secondaryFireMissFire, transform);
             }
         }
     }
