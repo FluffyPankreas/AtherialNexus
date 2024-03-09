@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The rate of stamina recharge rate.")]
     private float staminaChargeRate;
 
+    [SerializeField,Tooltip("The multiplier for stamina recharge when the player is standing still.")]
+    private float staminaChargeMultiplier = 2f;
+
     [SerializeField, Tooltip("The rate at which the stamina is drained while sprinting.")]
     private float staminaDrainRate;
 
@@ -151,7 +154,14 @@ public class PlayerController : MonoBehaviour
 
         if (!isSprinting)
         {
-            _staminaLeft += staminaChargeRate * Time.deltaTime;
+            if (readInput.magnitude != 0)
+            {
+                _staminaLeft += staminaChargeRate * Time.deltaTime;
+            }
+            else
+            {
+                _staminaLeft += staminaChargeRate * staminaChargeMultiplier * Time.deltaTime;
+            }
         }
         
         _staminaLeft = Mathf.Clamp(_staminaLeft, 0, maxStamina);
@@ -193,6 +203,4 @@ public class PlayerController : MonoBehaviour
     {
         _playerControls.Default.Enable();
     }
-
-
 }

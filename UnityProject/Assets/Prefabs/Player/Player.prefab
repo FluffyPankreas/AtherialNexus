@@ -198,6 +198,7 @@ MonoBehaviour:
   sprintModifier: 2.4
   maxStamina: 100
   staminaChargeRate: 5
+  staminaChargeMultiplier: 2.5
   staminaDrainRate: 30
   hitPointsLabel: {fileID: 0}
   staminaLabel: {fileID: 0}
