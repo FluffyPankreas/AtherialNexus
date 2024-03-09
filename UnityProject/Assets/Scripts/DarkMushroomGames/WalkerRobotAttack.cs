@@ -1,5 +1,6 @@
 using System;
 using DarkMushroomGames;
+using DarkMushroomGames.Managers;
 using UnityEngine;
 
 
@@ -16,6 +17,9 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The cooldown on the ranged attack of the enemy.")]
         private float attackCooldown = 3f;
+
+        [SerializeField,Tooltip("The clip that will play when the weapon is fired.")]
+        private AudioClip fireSoundEffect;
 
         private float _attackCooldownLeft = 0f;
         private Enemy _enemy;
@@ -44,6 +48,7 @@ namespace DarkMushroomGames
 
         private void Attack()
         {
+            SoundManager.Instance.PlaySoundEffectClip(fireSoundEffect, transform);
             var bullet = Instantiate(ammo, muzzle.position, Quaternion.identity);
             bullet.transform.forward = muzzle.forward;
 
