@@ -34,6 +34,9 @@ namespace DarkMushroomGames
 
         [SerializeField,Tooltip("The slider component that will indicate the character's health.")]
         private Slider healthIndicator;
+
+        [SerializeField,Tooltip("The distance that the agent will stop from the target in order to attack.")]
+        private float attackRange;
         
         private Transform _anchor;
         private HitPoints _hitPoints;
@@ -57,13 +60,16 @@ namespace DarkMushroomGames
 
             _nextRoamTime = Random.Range(roamingTime.x, roamingTime.y);
             
-
         }
 
         public void Start()
         {
+            if (_anchor == null)
+                _anchor = transform;
             SetNewRoamTarget();
             healthIndicator.maxValue = _hitPoints.MaxHitPoints;
+            
+            
         }
 
         public void Update()
@@ -74,6 +80,8 @@ namespace DarkMushroomGames
             {
                 _chasing = true;
                 _roaming = false;
+
+                _navMeshAgent.stoppingDistance = attackRange;
             }
             
             if (Vector3.Distance(transform.position, target.position) >= chaseDistance && !_roaming)
@@ -81,11 +89,14 @@ namespace DarkMushroomGames
                 _roaming = true;
                 _chasing = false;
                 
+                _navMeshAgent.stoppingDistance = 0;
+                
                 SetNewRoamTarget();
             }
 
             if (_roaming)
             {
+                
                 _timer += Time.deltaTime;
 
                 if (_timer >= _nextRoamTime)

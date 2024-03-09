@@ -404,6 +404,7 @@ MonoBehaviour:
   chaseDistance: 20
   animationController: {fileID: 2675904969296944796}
   healthIndicator: {fileID: 4560624640512875954}
+  attackRange: 1
 --- !u!114 &2324020570296404038
 MonoBehaviour:
   m_ObjectHideFlags: 0
