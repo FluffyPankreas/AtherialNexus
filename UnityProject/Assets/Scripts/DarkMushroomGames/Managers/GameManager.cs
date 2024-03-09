@@ -1,5 +1,6 @@
 using DarkMushroomGames.Architecture;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DarkMushroomGames.Managers
 {
@@ -17,7 +18,6 @@ namespace DarkMushroomGames.Managers
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            
         }
         
         public void PauseGame()
@@ -40,6 +40,12 @@ namespace DarkMushroomGames.Managers
             
             OnGameUnPause!.Invoke();
             IsPaused = false;
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(0);
+            UnPauseGame();
         }
     }
 }
