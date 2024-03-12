@@ -19,6 +19,9 @@ public class DesignIdeas
      * 14) Are we going to roll stats for monsters or keep them all exactly the same?
      * 15) "Expanding" level by player actions. Think bridges in D3.
      * 16) Environmental things that allows the player to do extra damage.
+     * 17) Destuctable or dropping environmental areas, like held up by chains, destroy the chains drop the area
+     * 18) Destructable spawners and areas that glow. Red area is danger, green is safe. Use the neon lights on platforms to show
+     * 19) Waterfalls, lakes, pipes, cosmetic or can use for teleporting? Come out the other side of the pipe
      */
     
 
