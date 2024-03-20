@@ -15690,7 +15690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729236486815383427, guid: f4550f8dcacc45d4e9a7bcb4fa3ad4f1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4793266285432112944, guid: f4550f8dcacc45d4e9a7bcb4fa3ad4f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15732,6 +15732,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4988721415364211441, guid: f4550f8dcacc45d4e9a7bcb4fa3ad4f1, type: 3}
+      propertyPath: musicTracks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988721415364211441, guid: f4550f8dcacc45d4e9a7bcb4fa3ad4f1, type: 3}
+      propertyPath: musicTracks.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45f22b3b2f331b440b1c14c61ff323f3, type: 3}
     - target: {fileID: 5483109681815278977, guid: f4550f8dcacc45d4e9a7bcb4fa3ad4f1, type: 3}
       propertyPath: m_audioClip
       value: 

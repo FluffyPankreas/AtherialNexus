@@ -1,0 +1,38 @@
+WEAPONS:
+
+
+
+
+ENEMIES IDEAS:
+
+
+
+
+
+GAME MODE/IDEAS: (each is basically a new take on the ARPG/3d Boomer shooter/Roguelike)
+
+1. Have areas in the map. Each area is spawning different enemies. The grey wastes, the Hub etc. Each enemey drops 1 of 3 resources. Farm resources then go back to the hub to "craft" upgrades. Resources could be Energy, Metal and Flux for example.
+Build up your character the way you want. In the Hub is a safe area. Upgrade and then when ready teleport to a new harder area.
+Endgame?
+
+2.
+
+
+
+
+
+POWER UP/RUNES:
+
++1 Damage
+
+
+
+WHAT ID LIKE TO SEE IN GAME NEXT:
+
+Flashing when hit enemies. particles and sound effect when hit. Blow up when destroyed.
+
+UI, with some objectives or counters like (30/200 balls killed) or a countdown
+
+3 Guns with proper feedback, sounds and fun added.
+
+INVERT MOUSE OPTION :P
