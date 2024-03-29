@@ -40,6 +40,8 @@ namespace DarkMushroomGames
 
         public bool IsChasing => _chasing;
         public float AttackRange => attackRange;
+
+        public bool IsAttacking => _attacking;
         public Transform Target => target;
         
         private Transform _anchor;
@@ -48,6 +50,7 @@ namespace DarkMushroomGames
 
         private bool _chasing = false;
         private bool _roaming = true;
+        private bool _attacking = false;
         private float _timer;
         private float _nextRoamTime;
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
@@ -80,27 +83,63 @@ namespace DarkMushroomGames
         {
             healthIndicator.gameObject.SetActive(_hitPoints.HitPointsLeft != _hitPoints.MaxHitPoints);
             healthIndicator.value = _hitPoints.HitPointsLeft;
-            if (Vector3.Distance(transform.position, target.position) < chaseDistance)
+            
+            SetState();
+            HandleState();
+            HandleAnimationState();
+            
+            if (_hitPoints.HitPointsLeft <= 0)
+            {
+                SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
+                Destroy(gameObject);
+            }
+        }
+
+        public void SetAnchor(Transform newAnchor)
+        {
+            _anchor = newAnchor;
+        }
+
+        private void SetState()
+        {
+            var distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            _navMeshAgent.isStopped = false;
+            
+            if (distanceToTarget < chaseDistance)
             {
                 _chasing = true;
                 _roaming = false;
+                _attacking = false;
 
                 _navMeshAgent.stoppingDistance = attackRange;
             }
-            
-            if (Vector3.Distance(transform.position, target.position) >= chaseDistance && !_roaming)
+
+            if (distanceToTarget >= chaseDistance && !_roaming)
             {
                 _roaming = true;
                 _chasing = false;
-                
+                _attacking = false;
+
                 _navMeshAgent.stoppingDistance = 0;
-                
+
                 SetNewRoamTarget();
             }
 
+            if (distanceToTarget <= attackRange)
+            {
+                _attacking = true;
+                _roaming = false;
+                _chasing = false;
+
+                _navMeshAgent.isStopped = true;
+            }
+        }
+
+        private void HandleState()
+        {
             if (_roaming)
             {
-                
                 _timer += Time.deltaTime;
 
                 if (_timer >= _nextRoamTime)
@@ -109,12 +148,12 @@ namespace DarkMushroomGames
                 }
             }
 
-            if (_chasing)
+            if (_chasing || _attacking)
             {
                 _navMeshAgent.destination = target.position;
 
                 //Keep the rotation towards the player.
-                if(_navMeshAgent.remainingDistance <= attackRange)
+                if( Vector3.Distance(transform.position, target.position) <= attackRange)
                 {
                     Vector3 dir = target.transform.position - transform.position;
                     Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -122,8 +161,11 @@ namespace DarkMushroomGames
                     transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
                 }
             }
+        }
 
-            if ( _navMeshAgent.remainingDistance <= 0)
+        private void HandleAnimationState()
+        {
+            if (_roaming||_chasing)
             {
                 animationController.SetBool(IsMoving, false);
             }
@@ -131,18 +173,6 @@ namespace DarkMushroomGames
             {
                 animationController.SetBool(IsMoving, true);
             }
-            
-            if (_hitPoints.HitPointsLeft <= 0)
-            {
-                SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
-                Destroy(gameObject);
-            }
-
-        }
-
-        public void SetAnchor(Transform newAnchor)
-        {
-            _anchor = newAnchor;
         }
 
         private void SetNewRoamTarget()

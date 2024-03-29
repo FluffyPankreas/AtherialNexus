@@ -31,7 +31,7 @@ namespace DarkMushroomGames
 
         public void Update()
         {
-            if (_enemy.IsChasing)
+            if (_enemy.IsAttacking)
             {
                 if (Vector3.Distance(_enemy.Target.position, transform.position) <= _enemy.AttackRange)
                 {
