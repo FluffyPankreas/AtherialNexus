@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -37,11 +38,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The rate at which the stamina is drained while sprinting.")]
     private float staminaDrainRate;
 
+    [SerializeField,Tooltip("The UI element that displays the player's health.")]
+    private Slider hitPointsSlider;
+    
     [SerializeField, Tooltip("The UI element that displays the player's health.")]
     private TMP_Text hitPointsLabel;
 
     [SerializeField, Tooltip("The UI element that displays the player's stamina")]
+    private Slider staminaSlider;
+    
+    [SerializeField, Tooltip("The UI element that displays the player's stamina")]
     private TMP_Text staminaLabel;
+    
     
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
@@ -61,6 +69,10 @@ public class PlayerController : MonoBehaviour
 
         _equippedWeapon = GetComponentInChildren<Weapon>(true);
         _staminaLeft = maxStamina;
+
+        hitPointsSlider.maxValue = _hitPoints.MaxHitPoints;
+        staminaSlider.maxValue = maxStamina;
+
     }
 
     public void Start()
@@ -71,6 +83,9 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        hitPointsSlider.value = _hitPoints.HitPointsLeft;
+        staminaSlider.value = _staminaLeft;
+        
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
         staminaLabel.text = _staminaLeft.ToString("0");
     }
