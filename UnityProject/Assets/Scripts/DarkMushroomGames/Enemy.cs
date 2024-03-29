@@ -51,6 +51,8 @@ namespace DarkMushroomGames
         private bool _chasing = false;
         private bool _roaming = true;
         private bool _attacking = false;
+        private bool _permanentChase = false;
+        
         private float _timer;
         private float _nextRoamTime;
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
@@ -134,6 +136,11 @@ namespace DarkMushroomGames
 
                 _navMeshAgent.isStopped = true;
             }
+
+            if (_hitPoints.HitPointsLeft < _hitPoints.MaxHitPoints)
+            {
+                _permanentChase = true;
+            }
         }
 
         private void HandleState()
@@ -148,7 +155,7 @@ namespace DarkMushroomGames
                 }
             }
 
-            if (_chasing || _attacking)
+            if (_chasing || _attacking || _permanentChase)
             {
                 _navMeshAgent.destination = target.position;
 
