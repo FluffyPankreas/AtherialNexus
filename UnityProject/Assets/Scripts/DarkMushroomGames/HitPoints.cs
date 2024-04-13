@@ -1,4 +1,5 @@
 using System;
+using AetherialNexus;
 using UnityEngine;
 
 namespace DarkMushroomGames
@@ -10,6 +11,9 @@ namespace DarkMushroomGames
     {
         [SerializeField, Tooltip("The maximum hit points for the agent.")]
         private int maxHitPoints = 10;
+
+        [SerializeField,Tooltip("The prefab that is used to display floating text.")]
+        private FloatingText floatTextPrefab;
 
         public int HitPointsLeft { get; private set; }
         public int MaxHitPoints => maxHitPoints;
@@ -27,6 +31,14 @@ namespace DarkMushroomGames
         public void SubtractHitPoints(int hitPointsToSubtract)
         {
             HitPointsLeft -= hitPointsToSubtract;
+            if(floatTextPrefab == null)
+                return;
+            
+            var floatingText = Instantiate(floatTextPrefab);
+            floatingText.transform.parent = transform;
+            floatingText.transform.localPosition = Vector3.zero;
+            floatingText.SetNumber(hitPointsToSubtract);
+            floatingText.transform.parent = null;
         }
     }
 }

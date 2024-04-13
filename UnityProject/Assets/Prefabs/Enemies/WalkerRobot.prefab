@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 20
+  floatTextPrefab: {fileID: 3314030926922747296, guid: 91d3a6822c3210b41bca55e647260f83, type: 3}
 --- !u!114 &2723746128139189823
 MonoBehaviour:
   m_ObjectHideFlags: 0

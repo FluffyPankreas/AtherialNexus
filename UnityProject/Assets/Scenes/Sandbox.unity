@@ -17111,14 +17111,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MageNun2
       objectReference: {fileID: 0}
-    - target: {fileID: 6624880188481814828, guid: 8e6e8566e004dce41b189c6972f2e523, type: 3}
-      propertyPath: m_Animations.Array.data[0]
-      value: 
-      objectReference: {fileID: -203655887218126122, guid: db76bba9b3bda4847a7f8a673413225d, type: 3}
-    - target: {fileID: 7398330850284418606, guid: 8e6e8566e004dce41b189c6972f2e523, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

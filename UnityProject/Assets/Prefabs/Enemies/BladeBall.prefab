@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 3
+  floatTextPrefab: {fileID: 3314030926922747296, guid: 91d3a6822c3210b41bca55e647260f83, type: 3}
 --- !u!1 &3857477958419517059
 GameObject:
   m_ObjectHideFlags: 0
