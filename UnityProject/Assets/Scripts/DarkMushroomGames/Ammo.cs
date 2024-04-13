@@ -1,7 +1,7 @@
 using System;
 using DarkMushroomGames.Managers;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 namespace DarkMushroomGames
 {
@@ -10,8 +10,11 @@ namespace DarkMushroomGames
     /// </summary>
     public class Ammo : MonoBehaviour
     {
-        [SerializeField,Tooltip("The amount of damage the bullet does.")]
-        private int ammoDamage = 1;
+        [SerializeField,Tooltip("The amount of dice rolled for damage.")]
+        private int damageDiceCount = 1;
+
+        [SerializeField,Tooltip("The size of each dice to roll for damage.")]
+        private int damageDiceSize = 6;
         
         [SerializeField,Tooltip("The clip to play when the ammo hits something.")]
         private AudioClip hitSound;
@@ -35,6 +38,12 @@ namespace DarkMushroomGames
                     Debug.LogWarning("No sound effect setup for the ammo.", gameObject);
                 }
 
+                int ammoDamage = 0;
+                for (int i = 0; i < damageDiceCount; i++)
+                {
+                    ammoDamage += Random.Range(0, damageDiceSize) + 1;
+                }
+                
                 var hp = collision.gameObject.GetComponent<HitPoints>();
                 if(hp!=null)
                     hp.SubtractHitPoints(ammoDamage);

@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465161c93980b1a44b44b804d3733a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoDamage: 1
+  damageDiceCount: 2
+  damageDiceSize: 6
   hitSound: {fileID: 8300000, guid: f3e50e58721e02c4d8c3241ef24f4a0e, type: 3}
   damageMask:
     serializedVersion: 2
