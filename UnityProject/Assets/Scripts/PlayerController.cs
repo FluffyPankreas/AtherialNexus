@@ -1,11 +1,9 @@
-using System;
-using System.Globalization;
 using DarkMushroomGames;
 using DarkMushroomGames.Managers;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -49,13 +47,16 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField, Tooltip("The UI element that displays the player's stamina")]
     private TMP_Text staminaLabel;
-    
+
+    [SerializeField,Tooltip("The custom gravity that the player experiences.")]
+    private float gravity;
     
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
 
     private float _xRotation = 0f;
-    private bool _isJumping;
+    private bool _isJumping = false;
+    private bool _isGrounded = true;
 
     private Weapon _equippedWeapon;
     private HitPoints _hitPoints;
@@ -88,6 +89,7 @@ public class PlayerController : MonoBehaviour
         
         hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
         staminaLabel.text = _staminaLeft.ToString("0");
+        
     }
 
     public void OnDestroy()
@@ -106,7 +108,16 @@ public class PlayerController : MonoBehaviour
     {
         if (_isJumping && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
+            _isGrounded = true;
             _isJumping = false;
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            _isGrounded = false;
         }
     }
 
@@ -137,6 +148,7 @@ public class PlayerController : MonoBehaviour
         if (!_isJumping)
         {
             _isJumping = true;
+            _isGrounded = false;
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
@@ -145,8 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         var readInput = _playerControls.Default.Movement.ReadValue<Vector2>();
         var isSprinting = _playerControls.Default.Sprint.ReadValue<float>() != 0;
-        
-        
+
         var direction = Vector3.zero;
         if (readInput.y > 0)
             direction += transform.forward;
@@ -157,7 +168,7 @@ public class PlayerController : MonoBehaviour
             direction += transform.right;
         if (readInput.x < 0)
             direction -= transform.right;
-            
+
         direction = direction.normalized;
 
         var runningSpeed = moveSpeed;
@@ -178,9 +189,34 @@ public class PlayerController : MonoBehaviour
                 _staminaLeft += staminaChargeRate * staminaChargeMultiplier * Time.deltaTime;
             }
         }
-        
+
         _staminaLeft = Mathf.Clamp(_staminaLeft, 0, maxStamina);
+        if (!_isGrounded)
+        {
+            _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+        }
+
+        /*Vector3 directionForce = new Vector3(direction.x * runningSpeed, 0, direction.z * runningSpeed);
+
+        _rigidbody.maxLinearVelocity = 10f;
+        _rigidbody.AddForce(directionForce);
+
+        if (direction.x == 0)
+        {
+            var velocity = _rigidbody.velocity;
+            
+            velocity = new Vector3(0, velocity.y, velocity.z);
+            _rigidbody.velocity = velocity;
+        }
         
+        if (direction.z == 0)
+        {
+            var velocity = _rigidbody.velocity;
+            
+            velocity = new Vector3(0, velocity.y, velocity.z);
+            _rigidbody.velocity = velocity;
+        }*/
+
         _rigidbody.velocity = new Vector3(direction.x * runningSpeed, _rigidbody.velocity.y, direction.z * runningSpeed);
     }
 

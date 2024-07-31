@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 5803444811889316515}
   - component: {fileID: 1469162229475382194}
   - component: {fileID: 1912291372353548583}
-  - component: {fileID: 2079697083020988880}
   - component: {fileID: 2714239120056583106}
   m_Layer: 3
   m_Name: Player
@@ -174,7 +173,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -192,39 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 2977472459596783422}
-  jumpForce: 5
-  moveSpeed: 5
+  jumpForce: 15
+  moveSpeed: 10
   mouseSensitivity: 10
-  sprintModifier: 2.4
+  sprintModifier: 1.75
   maxStamina: 100
   staminaChargeRate: 5
   staminaChargeMultiplier: 2.5
   staminaDrainRate: 30
+  hitPointsSlider: {fileID: 0}
   hitPointsLabel: {fileID: 0}
+  staminaSlider: {fileID: 0}
   staminaLabel: {fileID: 0}
---- !u!136 &2079697083020988880
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8228641215547030976}
-  m_Material: {fileID: 13400000, guid: 2e8915d37a5513646916dcf8b0c83331, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  gravity: 45
 --- !u!114 &2714239120056583106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
+  floatTextPrefab: {fileID: 0}
 --- !u!1 &8715928129831583423
 GameObject:
   m_ObjectHideFlags: 0
