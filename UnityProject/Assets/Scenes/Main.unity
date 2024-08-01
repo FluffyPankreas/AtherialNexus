@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrintTrace: 0
   managersSceneKey: Managers
+  hubSceneKey: Hub
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
