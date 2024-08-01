@@ -1,6 +1,5 @@
 using DarkMushroomGames.Architecture;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace DarkMushroomGames.Managers
 {
