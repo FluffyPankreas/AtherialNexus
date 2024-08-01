@@ -71,9 +71,16 @@ public class PlayerController : MonoBehaviour
         _equippedWeapon = GetComponentInChildren<Weapon>(true);
         _staminaLeft = maxStamina;
 
-        hitPointsSlider.maxValue = _hitPoints.MaxHitPoints;
-        staminaSlider.maxValue = maxStamina;
 
+        if (hitPointsSlider != null)
+        {
+            hitPointsSlider.maxValue = _hitPoints.MaxHitPoints;
+        }
+
+        if (staminaSlider != null)
+        {
+            staminaSlider.maxValue = maxStamina;    
+        }
     }
 
     public void Start()
@@ -84,12 +91,15 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        hitPointsSlider.value = _hitPoints.HitPointsLeft;
-        staminaSlider.value = _staminaLeft;
-        
-        hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
-        staminaLabel.text = _staminaLeft.ToString("0");
-        
+        if (hitPointsSlider != null && staminaSlider != null)
+        {
+            hitPointsSlider.value = _hitPoints.HitPointsLeft;
+            staminaSlider.value = _staminaLeft;
+
+            hitPointsLabel.text = _hitPoints.HitPointsLeft.ToString();
+            staminaLabel.text = _staminaLeft.ToString("0");
+        }
+
     }
 
     public void OnDestroy()
