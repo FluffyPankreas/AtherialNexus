@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField,Tooltip("The custom gravity that the player experiences.")]
     private float gravity;
+
+    [SerializeField,Tooltip("The distance at which the player can interact with objects in meters.")]
+    private float interactDistance = 1f;
     
     private Rigidbody _rigidbody;
     private PlayerControls _playerControls;
@@ -91,6 +94,21 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        
+        var interactionRay = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
+        Debug.DrawRay(interactionRay.origin, interactionRay.direction * interactDistance, Color.green);
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(interactionRay, out hitInfo, interactDistance,LayerMask.GetMask("Interactable")))
+        {
+            var interactable = hitInfo.transform.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                Debug.Log(interactable.InterActionMessage);
+            }
+        }
+        
+        
         if (hitPointsSlider != null && staminaSlider != null)
         {
             hitPointsSlider.value = _hitPoints.HitPointsLeft;
@@ -100,12 +118,6 @@ public class PlayerController : MonoBehaviour
             staminaLabel.text = _staminaLeft.ToString("0");
         }
 
-    }
-
-    public void OnDestroy()
-    {
-        GameManager.OnGamePause -= OnGamePause;
-        GameManager.OnGameUnPause -= OnGameUnPause;
     }
 
     public void FixedUpdate()
@@ -146,6 +158,12 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.PrimaryFire.performed -= PrimaryFire;
         _playerControls.Default.SecondaryFire.performed -= SecondaryFire;
         _playerControls.Default.Disable();
+    }
+    
+    public void OnDestroy()
+    {
+        GameManager.OnGamePause -= OnGamePause;
+        GameManager.OnGameUnPause -= OnGameUnPause;
     }
 
     public void SetMouseSensitivity(float level)
