@@ -7,12 +7,12 @@ namespace DarkMushroomGames.Managers
     public class SceneManager : MonoBehaviourSingleton<SceneManager>
     {
         [SerializeField,Tooltip("The scene that has to be loaded that has all high level managers.")]
-        private Scene managersScene;
+        private string managersSceneKey;
 
         public void Start()
         {
             Debug.Log("Loading the Managers Scene.");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(managersScene.name, LoadSceneMode.Additive);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(managersSceneKey, LoadSceneMode.Additive);
         }
 
         public static void LoadScene(int sceneBuildNumber)
