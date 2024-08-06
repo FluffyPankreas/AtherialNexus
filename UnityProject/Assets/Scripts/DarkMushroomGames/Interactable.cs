@@ -1,8 +1,7 @@
-using System;
 using AetherialNexus;
-using DarkMushroomGames.Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DarkMushroomGames
 {
@@ -35,7 +34,12 @@ namespace DarkMushroomGames
         }
 
         //TODO: This needs to be changed at some point into an interface or something. This is just temporary to make it work somewhat like it's supposed to for now.
-        public void Activate()
+        public void Interact()
+        {
+            SceneManager.LoadScene(SceneNumbers.SandboxScene);
+        }
+        
+        public void ShowMessage()
         {
             _activeTimeLeft = ActiveTime;
             messageWidget.gameObject.SetActive(true);
