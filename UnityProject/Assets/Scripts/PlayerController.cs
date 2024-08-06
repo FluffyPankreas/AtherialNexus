@@ -1,7 +1,6 @@
 using DarkMushroomGames;
 using DarkMushroomGames.Managers;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -101,12 +100,10 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(interactionRay, out hitInfo, interactDistance,LayerMask.GetMask("Interactable")))
         {
-            // Debug.Log("Ray hit.");
             var interactable = hitInfo.transform.GetComponent<Interactable>();
             if (interactable != null)
             {
-                // Debug.Log("Trying to call Activate()");
-                interactable.Activate();
+                interactable.ShowMessage();
             }
         }
         
@@ -151,7 +148,8 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.Jump.started += Jump;
         _playerControls.Default.PrimaryFire.performed += PrimaryFire;
         _playerControls.Default.SecondaryFire.performed += SecondaryFire;
-        
+        _playerControls.Default.Interact.performed += OnInteract;
+
     }
 
     public void OnDisable()
@@ -159,6 +157,7 @@ public class PlayerController : MonoBehaviour
         _playerControls.Default.Jump.started -= Jump;
         _playerControls.Default.PrimaryFire.performed -= PrimaryFire;
         _playerControls.Default.SecondaryFire.performed -= SecondaryFire;
+        _playerControls.Default.Interact.performed -= OnInteract;
         _playerControls.Default.Disable();
     }
     
@@ -226,27 +225,6 @@ public class PlayerController : MonoBehaviour
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
 
-        /*Vector3 directionForce = new Vector3(direction.x * runningSpeed, 0, direction.z * runningSpeed);
-
-        _rigidbody.maxLinearVelocity = 10f;
-        _rigidbody.AddForce(directionForce);
-
-        if (direction.x == 0)
-        {
-            var velocity = _rigidbody.velocity;
-            
-            velocity = new Vector3(0, velocity.y, velocity.z);
-            _rigidbody.velocity = velocity;
-        }
-        
-        if (direction.z == 0)
-        {
-            var velocity = _rigidbody.velocity;
-            
-            velocity = new Vector3(0, velocity.y, velocity.z);
-            _rigidbody.velocity = velocity;
-        }*/
-
         _rigidbody.velocity = new Vector3(direction.x * runningSpeed, _rigidbody.velocity.y, direction.z * runningSpeed);
     }
 
@@ -273,6 +251,23 @@ public class PlayerController : MonoBehaviour
     private void SecondaryFire(InputAction.CallbackContext context)
     {
         _equippedWeapon.SecondaryFire();
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log("Interact button pressed.");
+
+        var cameraTransform = fpsCamera.transform;
+        var interactionRay = new Ray(cameraTransform.position, cameraTransform.forward);
+
+        if (Physics.Raycast(interactionRay, out var hitInfo, interactDistance,LayerMask.GetMask("Interactable")))
+        {
+            var interactable = hitInfo.transform.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+        }
     }
 
     private void OnGamePause()
