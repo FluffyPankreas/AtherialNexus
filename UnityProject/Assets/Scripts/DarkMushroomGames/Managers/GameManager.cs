@@ -43,7 +43,7 @@ namespace DarkMushroomGames.Managers
 
         public void Restart()
         {
-            SceneManager.LoadScene(0);
+            DarkMushroomSceneManager.LoadScene(0);
             UnPauseGame();
         }
     }

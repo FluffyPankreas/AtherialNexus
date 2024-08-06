@@ -4,7 +4,11 @@ using UnityEngine.SceneManagement;
 
 namespace DarkMushroomGames.Managers
 {
-    public class SceneManager : MonoBehaviourSingleton<SceneManager>
+    /// <summary>
+    /// A scene manager that builds on Unity's scene manager but allows for more control on what scenes should
+    /// stay loaded an which ones should be unloaded. 
+    /// </summary>
+    public class DarkMushroomSceneManager : MonoBehaviourSingleton<DarkMushroomSceneManager>
     {
         [SerializeField,Tooltip("The scene that has to be loaded that has all high level managers.")]
         private string managersSceneKey;
@@ -24,6 +28,11 @@ namespace DarkMushroomGames.Managers
         public static void LoadScene(int sceneBuildNumber)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildNumber);
+        }
+
+        public static void LoadScene(string sceneName)
+        {
+            LoadScene(SceneManager.GetSceneByName(sceneName).buildIndex);
         }
     }
 }
