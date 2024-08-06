@@ -101,10 +101,12 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(interactionRay, out hitInfo, interactDistance,LayerMask.GetMask("Interactable")))
         {
+            // Debug.Log("Ray hit.");
             var interactable = hitInfo.transform.GetComponent<Interactable>();
             if (interactable != null)
             {
-                Debug.Log(interactable.InterActionMessage);
+                // Debug.Log("Trying to call Activate()");
+                interactable.Activate();
             }
         }
         
