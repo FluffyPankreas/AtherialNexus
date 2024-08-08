@@ -41,7 +41,7 @@ namespace DarkMushroomGames
             {
                 _remainingCooldown = attackCooldown;
 
-                var hp = other.GetComponent<HitPoints>();
+                var hp = other.transform.root.GetComponent<HitPoints>();
                 hp.SubtractHitPoints(damage);
             }
         }
