@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
     private Weapon _equippedWeapon;
     private HitPoints _hitPoints;
     private float _staminaLeft;
+    private HUDController _hudController;
+    private int _previousHitPoints;
     
     public void Awake()
     {
@@ -83,6 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             staminaSlider.maxValue = maxStamina;    
         }
+
+        
     }
 
     public void Start()
@@ -93,10 +97,22 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        if (_hudController == null)
+        {
+            _hudController = GameObject.FindObjectOfType<HUDController>();    
+        }
+        else
+        {
+            if (_previousHitPoints > _hitPoints.HitPointsLeft)
+            {
+                _hudController.ShowBloodSplatter();
+            }
+        }
         
         var interactionRay = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
         Debug.DrawRay(interactionRay.origin, interactionRay.direction * interactDistance, Color.green);
 
+        
         RaycastHit hitInfo;
         if (Physics.Raycast(interactionRay, out hitInfo, interactDistance,LayerMask.GetMask("Interactable")))
         {
@@ -117,6 +133,7 @@ public class PlayerController : MonoBehaviour
             staminaLabel.text = _staminaLeft.ToString("0");
         }
 
+        _previousHitPoints = _hitPoints.HitPointsLeft;
     }
 
     public void FixedUpdate()
