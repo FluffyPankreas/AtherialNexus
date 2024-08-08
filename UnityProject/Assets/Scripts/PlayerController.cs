@@ -1,3 +1,4 @@
+using AetherialNexus;
 using DarkMushroomGames;
 using DarkMushroomGames.Managers;
 using TMPro;
@@ -134,6 +135,10 @@ public class PlayerController : MonoBehaviour
         }
 
         _previousHitPoints = _hitPoints.HitPointsLeft;
+        if (_hitPoints.HitPointsLeft <= 0)
+        {
+            DarkMushroomSceneManager.LoadScene(SceneNumbers.HubScene);
+        }
     }
 
     public void FixedUpdate()
