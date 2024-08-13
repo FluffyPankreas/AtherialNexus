@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicTracks:
+  - {fileID: 8300000, guid: 0abf4ffe7e707fe42ac7fce51b305635, type: 3}
   - {fileID: 8300000, guid: 2e1010caba375c74bb2236312797de6a, type: 3}
   - {fileID: 8300000, guid: 39ddb3a9dac02cd4fa59e175c0bca593, type: 3}
+  - {fileID: 8300000, guid: f9f4b5b795b478d4cabbedfd9fef6b93, type: 3}
+  - {fileID: 8300000, guid: 04d3c94bf5b0eb04fb3396a9a5fe857b, type: 3}
+  - {fileID: 8300000, guid: 45f22b3b2f331b440b1c14c61ff323f3, type: 3}
 --- !u!82 &5483109681815278977
 AudioSource:
   m_ObjectHideFlags: 0
