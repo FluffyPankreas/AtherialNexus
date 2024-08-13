@@ -8,8 +8,9 @@ namespace AetherialNexus
     public abstract class SceneNumbers
     {
         public const int MainScene = 0;
-        public const int ManagersScene = 1;
-        public const int HubScene = 2;
-        public const int SandboxScene = 3;
+        public const int DMGSplashScene = 1;
+        public const int ManagersScene = 2;
+        public const int HubScene = 3;
+        public const int SandboxScene = 4;
     }
 }

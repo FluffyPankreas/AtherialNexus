@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: a4931b53f6e84db4c8175ff62bbc17c8
   - enabled: 1
+    path: Assets/Scenes/ArchitectureScenes/DMGSplash.unity
+    guid: 448411949bca3db439e5cc8beaf01439
+  - enabled: 1
     path: Assets/Scenes/ArchitectureScenes/Managers.unity
     guid: 7072eebebd684fd459f5c4f19b8c673e
   - enabled: 1
