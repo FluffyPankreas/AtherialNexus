@@ -1,6 +1,8 @@
 using DarkMushroomGames.Architecture;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.Serialization;
 
 namespace DarkMushroomGames.Managers
 {
@@ -14,15 +16,18 @@ namespace DarkMushroomGames.Managers
         private string managersSceneKey;
 
         [SerializeField,Tooltip("The scene that is the initial phase of the game, spawning the player in the hub.")]
-        private string hubSceneKey; 
+        private string hubSceneKey;
+
+        [SerializeField,Tooltip("The splashscreen to load for the company.")]
+        private string splashScreenKey;
 
         public void Start()
         {
             Debug.Log("Loading the Managers Scene.");
             UnityEngine.SceneManagement.SceneManager.LoadScene(managersSceneKey, LoadSceneMode.Additive);
 
-            Debug.Log("Loading the Hub.");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(hubSceneKey, LoadSceneMode.Additive);
+            StartCoroutine(DelayedLoad());
+            
         }
 
         public static void LoadScene(int sceneBuildNumber)
@@ -34,6 +39,17 @@ namespace DarkMushroomGames.Managers
         {
             LoadScene(SceneManager.GetSceneByName(sceneName).buildIndex);
         }
+
+        private IEnumerator DelayedLoad()
+        {
+            Debug.Log("Loading the splash scene.");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(splashScreenKey, LoadSceneMode.Additive);
+            yield return new WaitForSeconds(6);
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(splashScreenKey);
+            Debug.Log("Loading the Hub.");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(hubSceneKey, LoadSceneMode.Additive);
+        }
     }
+
 }
 
