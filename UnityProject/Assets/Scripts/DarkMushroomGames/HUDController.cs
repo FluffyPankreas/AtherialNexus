@@ -37,6 +37,18 @@ namespace DarkMushroomGames
             }
         }
 
+
+        public void RestartGame()
+        {
+            GameManager.Instance.Restart();
+        }
+
+        public void QuitGame()
+        {
+            GameManager.Instance.Quit();
+        }
+            
+
         public void ShowBloodSplatter()
         {
             Debug.Log("Should show splatter.");

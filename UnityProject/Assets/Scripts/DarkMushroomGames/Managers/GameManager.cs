@@ -46,5 +46,10 @@ namespace DarkMushroomGames.Managers
             DarkMushroomSceneManager.LoadScene(0);
             UnPauseGame();
         }
+
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 }
