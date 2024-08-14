@@ -62,5 +62,20 @@ namespace DarkMushroomGames
             splatter.transform.localPosition = new Vector3(xPosition, yPosition, 0);
             splatter.transform.localScale = new Vector3(scaleNumber, scaleNumber, scaleNumber);
         }
+
+        public void SetMasterVolume(float level)
+        {
+            SoundManager.Instance.SetMasterVolume(level);
+        }
+
+        public void SetMusicVolume(float level)
+        {
+            SoundManager.Instance.SetMusicVolume(level);
+        }
+        
+        public void SetEffectsVolume(float level)
+        {
+            SoundManager.Instance.SetEffectsVolume(level);
+        }
     }
 }
