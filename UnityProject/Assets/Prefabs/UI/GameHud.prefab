@@ -3649,6 +3649,9 @@ MonoBehaviour:
   optionsPanel: {fileID: 7337983541577619359}
   sfxParent: {fileID: 109582576049370789}
   bloodSplatterPrefab: {fileID: 7090464851773004404, guid: 98b693824b48bd64e8beefbfaade8d6a, type: 3}
+  masterVolumeSlider: {fileID: 5433281585854324324}
+  musicVolumeSlider: {fileID: 4343647938468902578}
+  effectsVolumeSlider: {fileID: 2651469012763909004}
 --- !u!1 &6173279514733648175
 GameObject:
   m_ObjectHideFlags: 0

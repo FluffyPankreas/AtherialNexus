@@ -7,12 +7,33 @@ namespace DarkMushroomGames.Managers
 {
     public class SoundManager : MonoBehaviourSingleton<SoundManager>
     {
+        private const string MasterVolumeKey = "Volume.Master";
+        private const string MusicVolumeKey = "Volume.Music";
+        private const string EffectsVolumeKey = "Volume.Effects";
+        
         [SerializeField,Tooltip("The prefab used to play sound effects at a point in the world.")]
         private AudioSource soundEffectPrefab;
 
         [SerializeField,Tooltip("The mixer the sound manager is currently using.")]
         private AudioMixer currentMixer;
 
+        public void OnEnable()
+        {
+            if(!PlayerPrefs.HasKey(MasterVolumeKey))
+            {
+                Debug.Log("Master volume key not found. Setting volume to max.");
+                PlayerPrefs.SetFloat(MasterVolumeKey, 1);
+                PlayerPrefs.SetFloat(MusicVolumeKey, 1);
+                PlayerPrefs.SetFloat(EffectsVolumeKey, 1);
+                
+                PlayerPrefs.Save();
+            }
+            
+            SetMasterVolume(PlayerPrefs.GetFloat(MasterVolumeKey));
+            SetMusicVolume(PlayerPrefs.GetFloat(MusicVolumeKey));
+            SetEffectsVolume(PlayerPrefs.GetFloat(EffectsVolumeKey));
+        }
+        
         /// <summary>
         /// Set's the current mixer's named group to the specified volume.
         /// </summary>
@@ -23,19 +44,49 @@ namespace DarkMushroomGames.Managers
             currentMixer.SetFloat(groupName, Mathf.Log10(level) * 20f);
         }
 
+        private float GetGroupVolume(string groupName)
+        {
+            var level = PlayerPrefs.GetFloat(groupName);
+            return level;
+        }
+
+        public float GetMasterVolume()
+        {
+            return GetGroupVolume(MasterVolumeKey);
+        }
+        
+        public float GetMusicVolume()
+        {
+            return GetGroupVolume(MusicVolumeKey);
+        }
+        
+        public float GetEffectsVolume()
+        {
+            return GetGroupVolume(EffectsVolumeKey);
+        }
+
         public void SetMasterVolume(float level)
         {
             SetGroupVolume("MasterVolume", level);
+            
+            PlayerPrefs.SetFloat(MasterVolumeKey, level);
+            PlayerPrefs.Save();
         }
-
+        
         public void SetMusicVolume(float level)
         {
             SetGroupVolume("MusicVolume", level);
+            
+            PlayerPrefs.SetFloat(MusicVolumeKey, level);
+            PlayerPrefs.Save();
         }
         
         public void SetEffectsVolume(float level)
         {
             SetGroupVolume("EffectsVolume", level);
+            
+            PlayerPrefs.SetFloat(EffectsVolumeKey, level);
+            PlayerPrefs.Save();
         }
 
         /// <summary>

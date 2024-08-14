@@ -1,6 +1,9 @@
+using System;
 using DarkMushroomGames.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace DarkMushroomGames
 {
@@ -13,11 +16,22 @@ namespace DarkMushroomGames
         private Transform sfxParent;
 
         [SerializeField,Tooltip("The prefab to instantiate when the player is hit.")]
-        private GameObject bloodSplatterPrefab; 
+        private GameObject bloodSplatterPrefab;
+
+        [SerializeField] private Slider masterVolumeSlider;
+        [SerializeField] private Slider musicVolumeSlider;
+        [SerializeField] private Slider effectsVolumeSlider;
 
         public void Awake()
         {
             optionsPanel.gameObject.SetActive(false);
+        }
+
+        public void OnEnable()
+        {
+            masterVolumeSlider.value = SoundManager.Instance.GetMasterVolume();
+            musicVolumeSlider.value = SoundManager.Instance.GetMusicVolume();
+            effectsVolumeSlider.value = SoundManager.Instance.GetEffectsVolume();
         }
 
         public void Update()
