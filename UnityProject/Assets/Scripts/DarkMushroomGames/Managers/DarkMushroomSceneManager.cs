@@ -25,17 +25,15 @@ namespace DarkMushroomGames.Managers
         {
             Debug.Log("Loading the Managers Scene.");
             UnityEngine.SceneManagement.SceneManager.LoadScene(managersSceneKey, LoadSceneMode.Additive);
-
             StartCoroutine(DelayedLoad());
-            
         }
 
-        public static void LoadScene(int sceneBuildNumber)
+        public void LoadScene(int sceneBuildNumber)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildNumber);
         }
 
-        public static void LoadScene(string sceneName)
+        public void LoadScene(string sceneName)
         {
             LoadScene(SceneManager.GetSceneByName(sceneName).buildIndex);
         }
@@ -48,6 +46,12 @@ namespace DarkMushroomGames.Managers
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(splashScreenKey);
             Debug.Log("Loading the Hub.");
             UnityEngine.SceneManagement.SceneManager.LoadScene(hubSceneKey, LoadSceneMode.Additive);
+        }
+
+        //TODO: This is a quick fix to stop restarting the game from crashing. At some point the scene management needs to be cleaned up and set up better.
+        public void RestartGame()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(hubSceneKey, LoadSceneMode.Single);
         }
     }
 

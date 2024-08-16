@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
         _previousHitPoints = _hitPoints.HitPointsLeft;
         if (_hitPoints.HitPointsLeft <= 0)
         {
-            DarkMushroomSceneManager.LoadScene(SceneNumbers.HubScene);
+            DarkMushroomSceneManager.Instance.LoadScene(SceneNumbers.HubScene);
         }
     }
 
