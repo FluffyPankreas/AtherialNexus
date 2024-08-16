@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c749cbf7d2b5c4d82c26dab9dd6282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 3
+  maxHitPoints: 12
   floatTextPrefab: {fileID: 3314030926922747296, guid: 91d3a6822c3210b41bca55e647260f83, type: 3}
 --- !u!114 &5325072814866814342
 MonoBehaviour:
@@ -598,7 +598,7 @@ MonoBehaviour:
   seeThroughTextureUVSpace: 0
   seeThroughTextureScale: 1
   seeThroughChildrenSortingMode: 0
-  rmsCount: 9
+  rmsCount: 2
   hitFxInitialIntensity: 0.6
   hitFxMode: 1
   hitFxFadeOutDuration: 0.25
