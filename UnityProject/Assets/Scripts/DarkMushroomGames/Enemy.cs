@@ -1,6 +1,6 @@
 using DarkMushroomGames.Managers;
 using DarkMushroomGames.Architecture;
-using Unity.VisualScripting;
+using HighlightPlus;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -11,7 +11,9 @@ namespace DarkMushroomGames
     /// <summary>
     /// Base enemy class. Handles references and things to make sure it works with navmesh.
     /// </summary>
-    [RequireComponent(typeof(NavMeshAgent)),RequireComponent(typeof(HitPoints))]
+    [RequireComponent(typeof(NavMeshAgent)),
+     RequireComponent(typeof(HitPoints)),
+    RequireComponent(typeof(HighlightEffect))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField, Tooltip("The target the agent will track.")]
@@ -47,6 +49,7 @@ namespace DarkMushroomGames
         private Transform _anchor;
         private HitPoints _hitPoints;
         private NavMeshAgent _navMeshAgent;
+        private HighlightEffect _highlightEffect;
 
         private bool _chasing = false;
         private bool _roaming = true;
@@ -66,6 +69,7 @@ namespace DarkMushroomGames
             
             _hitPoints = GetComponent<HitPoints>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
+            _highlightEffect = GetComponent<HighlightEffect>();
 
             _nextRoamTime = Random.Range(roamingTime.x, roamingTime.y);
             

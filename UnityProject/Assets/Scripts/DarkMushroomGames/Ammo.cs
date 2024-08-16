@@ -1,5 +1,6 @@
 using System;
 using DarkMushroomGames.Managers;
+using HighlightPlus;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -47,6 +48,12 @@ namespace DarkMushroomGames
                 var hp = collision.gameObject.GetComponent<HitPoints>();
                 if(hp!=null)
                     hp.SubtractHitPoints(ammoDamage);
+
+                var hitEffect = collision.gameObject.GetComponent<HighlightEffect>();
+                if (hitEffect != null)
+                {
+                    hitEffect.HitFX();
+                }
             }
 
             Destroy(gameObject);

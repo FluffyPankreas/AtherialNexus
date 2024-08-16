@@ -1,4 +1,5 @@
 using DarkMushroomGames.Managers;
+using HighlightPlus;
 using UnityEngine;
 
 namespace DarkMushroomGames
@@ -94,6 +95,11 @@ namespace DarkMushroomGames
                     var colliderGameObject = hit.collider.gameObject;
                 
                     colliderGameObject.GetComponent<HitPoints>().SubtractHitPoints(remainingDamage);
+                    var hitEffect = colliderGameObject.GetComponent<HighlightEffect>();
+                    if (hitEffect != null)
+                    {
+                        hitEffect.HitFX();
+                    }
                     remainingDamage -= secondaryFireDamageDropoff;
                     remainingDamage = Mathf.Clamp(remainingDamage, 0, secondaryFireDamage);
                 }
