@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Master
+  m_text: MASTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
   m_sharedMaterial: {fileID: 1935576048576478870, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
   m_sharedMaterial: {fileID: 1935576048576478870, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mouse
+  m_text: MOUSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
   m_sharedMaterial: {fileID: 1935576048576478870, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit Game
+  m_text: QUIT GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
   m_sharedMaterial: {fileID: 1935576048576478870, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music
+  m_text: MUSIC
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7c2455827f82e346a9226fb845322b3, type: 2}
   m_sharedMaterial: {fileID: 1935576048576478870, guid: b7c2455827f82e346a9226fb845322b3, type: 2}

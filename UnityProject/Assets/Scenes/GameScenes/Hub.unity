@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d62304baa2c79d45abe17a91434a76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMessage: Press [E] to go through the portal.
+  interactionMessage: PRESS [E] TO GO THROUGH THE PORTAL
   messageWidget: {fileID: 978296787}
 --- !u!1 &2017057483
 GameObject:
