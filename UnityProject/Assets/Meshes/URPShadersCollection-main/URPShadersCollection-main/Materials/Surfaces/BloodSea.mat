@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VericalFogShader
-  m_Shader: {fileID: 4800000, guid: 18f9a9839c4621b41855f5ed7139e5ff, type: 3}
+  m_Name: BloodSea
+  m_Shader: {fileID: -6465566751694194690, guid: cf6b0ef5dd8b78a44aced4a1abfcab68, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -81,8 +81,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_139c821223584c2cbead7a3fb32ed35d: 10
+    - Vector1_22239ed72b324e5b88346b7ffb1e59f0: 0.5
+    - Vector1_4517cb6f531741a8bc647496d24153bd: 0.4
+    - Vector1_5cd1859b4c874831b7616472bde6a5fa: 0.2
+    - Vector1_602412e90d5444c39d4086d2236860e9: 30
+    - Vector1_73150df4a8aa45fa9d4adf13b2685dd9: 0.1
+    - Vector1_87a6a791ec5a434294f994d4b66ca55f: 0.6
+    - Vector1_c0797364daf84b2486387ad32a95fd59: 12
+    - Vector1_eae76a3092f94c2ebf6d75a1746e65ea: 1.1
     - _AlphaClip: 0
-    - _AlphaPoint: 27.8
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -93,15 +101,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FO: 0.03
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
-    - _Range: 52.52
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -111,17 +118,15 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_63bcae1fee82451ca4e7f2bf163d7318: {r: 1, g: 0, b: 0.059297062, a: 0.84705883}
+    - Color_d956042353744f51b5d6d67029b33da5: {r: 0.8962264, g: 0.3652631, b: 0.25787643, a: 0.8}
+    - Color_f32f9fb28b484d0ba3fb1abca4060f6b: {r: 0.5188679, g: 0.010698308, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0.57103, g: 0.9622641, b: 0.39489144, a: 0.24705882}
-    - _FrontColor: {r: 1, g: 0.49459833, b: 0, a: 1}
-    - _LeftColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
-    - _MidleColorEnd: {r: 0.31132075, g: 0.31132075, b: 0.31132075, a: 0.36078432}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TopColor: {r: 1, g: 0, b: 0.026157856, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6385923158849274243
+--- !u!114 &4567836441485084161
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,4 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 4
+  version: 7
