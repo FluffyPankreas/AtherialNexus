@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 855180502984440346}
   - component: {fileID: 3018181925826777177}
   - component: {fileID: 1080186408136967935}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 50031746657786423}
   - component: {fileID: 2324020570296404038}
   - component: {fileID: 5325072814866814342}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: BladeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9175997619281053988}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1135,6 +1135,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: efc78ae6d40dd2643b24ba32b1f6619a, type: 3}
       propertyPath: m_Name
       value: EnemyBladeBallv2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efc78ae6d40dd2643b24ba32b1f6619a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177302620104308133, guid: efc78ae6d40dd2643b24ba32b1f6619a, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

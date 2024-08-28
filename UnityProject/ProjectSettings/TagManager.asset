@@ -3,34 +3,36 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Projectile
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Terrain
-  - Enemy
+  - 
+  - Player
   - PlayerProjectile
+  - PlayerCollision
+  - 
+  - 
+  - Enemy
+  - EnemyProjectile
+  - EnemyPathing
+  - 
+  - 
+  - ProjectileCollision
   - 
   - 
   - 
-  - 
-  - 
-  - EnemyClipping
-  - EnemyAttack
   - 
   - 
   - 
   - 
   - OutOfBounds
-  - 
-  - 
-  - 
-  - 
-  - 
   - Interactable
   - 
   - 

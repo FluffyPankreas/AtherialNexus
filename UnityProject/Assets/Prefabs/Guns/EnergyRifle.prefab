@@ -101,12 +101,13 @@ MonoBehaviour:
   loadedAmmo: {fileID: 7663968445071275040, guid: c5377a776c317dd499d746aeae6359b9, type: 3}
   primaryFireSoundEffect: {fileID: 8300000, guid: 925b3082ce9b99f40b1ebf0f68516745, type: 3}
   secondaryFireSoundEffect: {fileID: 8300000, guid: c83827d756610264fa859b03bc683b8c, type: 3}
+  secondaryFireMissFire: {fileID: 0}
   secondaryFireCooldown: 5
   secondaryFireRange: 10
   secondaryFireEffect: {fileID: 0}
   secondaryFireHitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   secondaryFireDamage: 0
   secondaryFireDamageDropoff: 0
 --- !u!1 &7956645934180005422

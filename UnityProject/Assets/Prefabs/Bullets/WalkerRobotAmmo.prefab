@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1129693951273813740}
   - component: {fileID: 8044056923179575858}
   - component: {fileID: 7439841911834749152}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1955986606634845570}
   - component: {fileID: 1305431103157973371}
   - component: {fileID: 7016845168976825322}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: WalkerRobotAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,11 +181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465161c93980b1a44b44b804d3733a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoDamage: 3
+  damageDiceCount: 1
+  damageDiceSize: 6
   hitSound: {fileID: 0}
   damageMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
 --- !u!135 &1305431103157973371
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -245,7 +246,7 @@ GameObject:
   - component: {fileID: 4593523593140828734}
   - component: {fileID: 7186740700380858407}
   - component: {fileID: 5745174279334444882}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: OuterOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +329,7 @@ GameObject:
   - component: {fileID: 1706777422302287501}
   - component: {fileID: 6307750381530243410}
   - component: {fileID: 4376466465421419636}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: InnerOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

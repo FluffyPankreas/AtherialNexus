@@ -86,7 +86,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f3e50e58721e02c4d8c3241ef24f4a0e, type: 3}
   damageMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 4096
 --- !u!114 &8733638157206419630
 MonoBehaviour:
   m_ObjectHideFlags: 0

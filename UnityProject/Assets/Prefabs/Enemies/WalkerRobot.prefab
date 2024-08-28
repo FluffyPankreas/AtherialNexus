@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2723746128139189823}
   - component: {fileID: 845239408927929483}
   - component: {fileID: 2984432163837717629}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: WalkerRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7880029056190200921}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162682815107540425}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,13 +1107,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7891092957932549332, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7884308149246209230, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -3409594842443089039, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2104649381683797255, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -1371934483002496020, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 64261168175172786, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 332743372066095837, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
       propertyPath: m_Name
       value: RobotAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368932151745227832, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615797090342110595, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990617844666311984, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418767765703416249, guid: 3e5ae476f2be784408716c30519d23af, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

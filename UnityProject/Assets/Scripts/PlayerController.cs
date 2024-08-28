@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (_isJumping && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (_isJumping && collision.gameObject.layer == LayerMask.NameToLayer("PlayerCollision"))
         {
             _isGrounded = true;
             _isJumping = false;
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerCollision"))
         {
             _isGrounded = false;
         }
