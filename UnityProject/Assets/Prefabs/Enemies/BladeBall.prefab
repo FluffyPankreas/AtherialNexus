@@ -406,6 +406,7 @@ MonoBehaviour:
   animationController: {fileID: 2675904969296944796}
   healthIndicator: {fileID: 4560624640512875954}
   attackRange: 2
+  _resourceDropRange: {fileID: 11400000, guid: ef6486bafe1e0f24daacb2ce71ad54e8, type: 2}
 --- !u!114 &2324020570296404038
 MonoBehaviour:
   m_ObjectHideFlags: 0

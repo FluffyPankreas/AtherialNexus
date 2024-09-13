@@ -1,5 +1,6 @@
 using System;
 using DarkMushroomGames.Architecture;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace AetherialNexus
@@ -10,7 +11,10 @@ namespace AetherialNexus
         /// The number of levels that are in the game.
         /// </summary>
         public const int NumberOfLevels = 4;
-            
+
+        [SerializeField,Tooltip("The prefab that will be instantiated when resources are dropped.")]
+        private ResourceDrop resourcePrefab;
+        
         private int[] _mechanicalParts = new int[3];
         private int[] _organicMatter = new int[3];
         private int[] _atherialEssence = new int[3];
@@ -92,8 +96,14 @@ namespace AetherialNexus
             
             Save();
             return false;
-        } 
-        
+        }
+
+        public void InstantiateResource(Vector3 location, ResourceDropRange resourceData)
+        {
+            var newResource = Instantiate(resourcePrefab, location, Quaternion.identity);
+            newResource.InitializeValues(resourceData.amount, resourceData.tier);
+        }
+
         private void Save()
         {
             // throw new NotImplementedException();

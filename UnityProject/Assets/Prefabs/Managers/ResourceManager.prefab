@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrintTrace: 0
+  resourcePrefab: {fileID: 5211955071666444463, guid: 249e47ddf0403694a9f508a9d9023303, type: 3}

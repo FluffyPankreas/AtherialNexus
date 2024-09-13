@@ -1,3 +1,4 @@
+using AetherialNexus;
 using DarkMushroomGames.Managers;
 using DarkMushroomGames.Architecture;
 using HighlightPlus;
@@ -40,6 +41,8 @@ namespace DarkMushroomGames
         [SerializeField,Tooltip("The distance that the agent will stop from the target in order to attack.")]
         private float attackRange;
 
+        [SerializeField,Tooltip("The data to use when spawning resource orbs.")]
+        private ResourceDropRange _resourceDropRange;
         public bool IsChasing => _chasing;
         public float AttackRange => attackRange;
 
@@ -97,6 +100,7 @@ namespace DarkMushroomGames
             if (_hitPoints.HitPointsLeft <= 0)
             {
                 SoundManager.Instance.PlaySoundEffectClip(killedClips,transform);
+                ResourceManager.Instance.InstantiateResource(transform.position, _resourceDropRange);
                 Destroy(gameObject);
             }
         }

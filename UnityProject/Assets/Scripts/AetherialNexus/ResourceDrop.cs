@@ -28,11 +28,6 @@ namespace AetherialNexus
             _rb = GetComponent<Rigidbody>();
         }
 
-        public void Start()
-        {
-            InitializeValues(Random.Range(50, 100), Random.Range(0, 3));
-        }
-
         public void Update()
         {
             if (_followTarget)
