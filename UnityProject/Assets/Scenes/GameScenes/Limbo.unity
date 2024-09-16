@@ -6850,6 +6850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerRobot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 99548056414803566, guid: a06967677d213c047a52f527833a4342, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1158761440973087118, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -13736,6 +13740,10 @@ PrefabInstance:
     - target: {fileID: 80190465664044780, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_Name
       value: WalkerRobot (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 99548056414803566, guid: a06967677d213c047a52f527833a4342, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1158761440973087118, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_AnchorMax.x
@@ -41313,6 +41321,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1696767713}
     m_Modifications:
+    - target: {fileID: 2570053849543633944, guid: 5ada0949ce1784b4e905cf459435c8f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3605602586885912594, guid: 5ada0949ce1784b4e905cf459435c8f4, type: 3}
       propertyPath: m_Name
       value: BladeBall (1)
@@ -41895,6 +41907,10 @@ PrefabInstance:
     - target: {fileID: 80190465664044780, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_Name
       value: WalkerRobot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 99548056414803566, guid: a06967677d213c047a52f527833a4342, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1158761440973087118, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_AnchorMax.x
@@ -42700,6 +42716,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1696767713}
     m_Modifications:
+    - target: {fileID: 2570053849543633944, guid: 5ada0949ce1784b4e905cf459435c8f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3605602586885912594, guid: 5ada0949ce1784b4e905cf459435c8f4, type: 3}
       propertyPath: m_Name
       value: BladeBall
@@ -54135,6 +54155,10 @@ PrefabInstance:
     - target: {fileID: 80190465664044780, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_Name
       value: WalkerRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 99548056414803566, guid: a06967677d213c047a52f527833a4342, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1158761440973087118, guid: a06967677d213c047a52f527833a4342, type: 3}
       propertyPath: m_AnchorMax.x
