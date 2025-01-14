@@ -100,7 +100,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_hudController == null)
         {
-            _hudController = GameObject.FindObjectOfType<HUDController>();    
+            var hudControllers = FindObjectsByType<HUDController>(FindObjectsSortMode.None);
+            if (hudControllers.Length > 0)
+            {
+                _hudController = hudControllers[0];
+            }
         }
         else
         {
@@ -247,7 +251,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
 
-        _rigidbody.velocity = new Vector3(direction.x * runningSpeed, _rigidbody.velocity.y, direction.z * runningSpeed);
+        _rigidbody.linearVelocity = new Vector3(direction.x * runningSpeed, _rigidbody.linearVelocity.y, direction.z * runningSpeed);
     }
 
     private void HandleMouseLook()

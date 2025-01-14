@@ -64,7 +64,7 @@ namespace DarkMushroomGames.Architecture
         /// </summary>
         private static T FindExistingInstance()
         {
-            T[] existingInstances = FindObjectsOfType<T>();
+            T[] existingInstances = FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
             // No instance found
             if (existingInstances == null || existingInstances.Length == 0) return null;
