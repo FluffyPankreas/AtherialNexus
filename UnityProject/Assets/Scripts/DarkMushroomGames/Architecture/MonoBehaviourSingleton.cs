@@ -78,8 +78,8 @@ namespace DarkMushroomGames.Architecture
         /// </summary>
         private static T CreateNewInstance()
         {
-            var containerGO = new GameObject("__" + typeof(T).Name + " (Singleton)");
-            return containerGO.AddComponent<T>();
+            var containerGameObject = new GameObject("__" + typeof(T).Name + " (Singleton)");
+            return containerGameObject.AddComponent<T>();
         }
 
         #endregion
@@ -141,7 +141,7 @@ namespace DarkMushroomGames.Architecture
             if (_instance == null)
             {
                 _instance = thisInstance;
-                DontDestroyOnLoad(_instance.gameObject);
+                    DontDestroyOnLoad(_instance.gameObject);
 
             }
 
